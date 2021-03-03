@@ -69,7 +69,7 @@
           <!-- designition -->
           <mat-form-field>
             <mat-label>Designation</mat-label>
-            <mat-select placeholder="Choose designation" formControlName="designation">
+            <mat-select formControlName="designation">
               <mat-option *ngFor="let dsg of (designations$ | async)" [value]="dsg.key">
                 {{ dsg.label }}
               </mat-option>
@@ -79,9 +79,9 @@
           <!-- joinDate -->
           <mat-form-field>
             <mat-label>Join Date</mat-label>
-            <input matInput [matDatePicker]="jdPicker" formControlName="joinDate" type="date" />
-            <mat-date-picker-toggle matSuffix [for]="jdPicker"></mat-date-picker-toggle>
-            <mat-date-picker #jdPicker></mat-date-picker>
+            <input matInput [matDatepicker]="jdPicker" formControlName="joinDate" type="datetime" />
+            <mat-datepicker-toggle matSuffix [for]="jdPicker"></mat-datepicker-toggle>
+            <mat-datepicker #jdPicker></mat-datepicker>
             <mat-error *ngIf="getEmployeeControl(i, 'joinDate').invalid">
               {{ getEmployeeControlError(i, 'joinDate') }}
             </mat-error>
@@ -175,11 +175,11 @@
                   </mat-error>
                 </mat-form-field>
 
-                <mat-form-field>
+                <mat-form-field appearance="fill">
                   <mat-label>Completed year</mat-label>
-                  <input matInput [matDatePicker]="cyPicker" formControlName="completedYear" type="date" />
-                  <mat-date-picker-toggle matSuffix [for]="cyPicker"></mat-date-picker-toggle>
-                  <mat-date-picker #cyPicker></mat-date-picker>
+                  <input matInput [matDatepicker]="cyPicker" formControlName="completedYear" type="datetime" />
+                  <mat-datepicker-toggle matSuffix [for]="cyPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #cyPicker></mat-datepicker>
                   <mat-error *ngIf="getEducationInfoControl(i, j, 'completedYear').invalid">
                     {{ getEducationInfoControlError(i, j, 'completedYear') }}
                   </mat-error>

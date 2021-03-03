@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { Observable } from 'rxjs';
+
 import { CompanyService } from '../services/company.service';
 import { pastDateValidator } from 'src/app/_shared/utils';
 
@@ -10,9 +10,6 @@ import { pastDateValidator } from 'src/app/_shared/utils';
   selector: 'app-company-new',
   templateUrl: './company-new.component.html',
   styleUrls: ['./company-new.component.scss'],
-  providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
-  ]
 })
 export class CompanyNewComponent implements OnInit {
   public form!: FormGroup;
@@ -155,7 +152,7 @@ export class CompanyNewComponent implements OnInit {
     const educationFormGroup = this._formBuilder.group({
       instituteName: ['', [Validators.required, Validators.maxLength(50)]],
       courseName: ['', [Validators.required, Validators.maxLength(25)]],
-      completedYear: ['', ]
+      completedYear: ['']
     });
     this.getEducationInfo(empIndex).push(educationFormGroup);
     this.form.updateValueAndValidity();

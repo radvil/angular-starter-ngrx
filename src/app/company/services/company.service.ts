@@ -9,7 +9,7 @@ export class CompanyService {
   constructor() { }
 
   private _companyList = new BehaviorSubject<ICompany[]>(companyList);
-  private _currentIdPostfix = 6;
+  private _currentIdPostfix = 12;
 
   getCompanies(): Observable<ICompany[]> {
     return this._companyList.asObservable();

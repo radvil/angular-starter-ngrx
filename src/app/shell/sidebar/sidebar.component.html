@@ -1,5 +1,7 @@
 <mat-nav-list>
-  <h3 class="menu-heading">Company</h3>
+  <div class="menu-heading">
+    <span class="badge dark">Main Menu</span>
+  </div>
   <a
     *ngFor="let menuItem of menuList"
     mat-list-item
@@ -7,7 +9,7 @@
     [routerLink]="menuItem.link"
     routerLinkActive="active"
   >
-    <mat-icon>{{ menuItem.iconName }}</mat-icon>
+    <mat-icon *ngIf="menuItem.iconName">{{ menuItem.iconName }}</mat-icon>
     <span>{{ menuItem.label }}</span>
   </a>
 </mat-nav-list>
