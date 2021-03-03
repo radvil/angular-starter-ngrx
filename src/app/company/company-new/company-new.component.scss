@@ -39,7 +39,7 @@ mat-form-field {
   margin: 1rem 0;
   & > * {
     margin-bottom: 1rem;
-    background-color: ivory;
+    // background-color: ivory;
   }
   // large
   @media (min-width: 777px) {
@@ -56,7 +56,7 @@ mat-form-field {
   margin: 1rem 0;
   & > * {
     margin-bottom: 1rem;
-    background-color: ghostwhite;
+    // background-color: ghostwhite;
   }
   // large
   @media (min-width: 777px) {
@@ -73,7 +73,7 @@ mat-card mat-icon.delete {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: red;
+  // color: red;
   cursor: pointer;
 }
 .spinner-container {
