@@ -1,6 +1,7 @@
 <mat-toolbar
   [ngClass]="(isHandset$ | async) ? 'mat-elevation-z2' : 'mat-elevation-z4'"
   class="fixed-toolbar"
+  color="primary"
 >
   <button mat-icon-button (click)="clickMenu.emit()">
     <mat-icon>menu</mat-icon>
@@ -10,4 +11,8 @@
     <img src="favicon.ico" alt="brand image" />
     <span>Angular</span>
   </div>
+
+  <button mat-icon-button (click)="toggleDarkMode()">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>

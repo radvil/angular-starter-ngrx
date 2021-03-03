@@ -3,6 +3,7 @@
 	width: 100%;
 
   .wrapper {
+    overflow-y: auto;
     height: 100vh;
     display: flex;
     flex-direction: column;

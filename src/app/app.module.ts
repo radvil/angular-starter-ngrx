@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MomentDateModule } from '@angular/material-moment-adapter'
 
+import { CoreModule } from './_core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShellModule } from './shell/shell.module';
@@ -16,7 +16,7 @@ import { AboutComponent } from './about/about.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // MomentDateModule,
+    CoreModule,
     AppRoutingModule,
     ShellModule,
   ],
