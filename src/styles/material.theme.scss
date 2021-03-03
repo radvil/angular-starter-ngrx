@@ -33,8 +33,10 @@ $rad-dark-theme: map_merge($rad-dark-theme, (background: $dark-background-reset)
 $rad-light-theme: map_merge($rad-light-theme, (background: $light-background-reset));
 
 // component mixin
+@import "./main.theme.scss";
+
 @mixin rad-components-theme($theme) {
-	// @include rad-main-layout-theme($theme);
+	@include rad-main-theme($theme);
 }
 
 // theme class

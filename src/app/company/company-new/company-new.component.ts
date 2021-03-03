@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { CompanyService } from '../services/company.service';
 import { pastDateValidator } from 'src/app/_shared/utils';
+import { NotificationService } from 'src/app/_core/services';
 
 @Component({
   selector: 'app-company-new',
@@ -21,6 +22,7 @@ export class CompanyNewComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _companyService: CompanyService,
     private _router: Router,
+    private _notification: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +44,11 @@ export class CompanyNewComponent implements OnInit {
   }
 
   submitForm(): void {
-    console.log(this.form.value);
     this._companyService
       .addCompany(this.form.value)
       .subscribe(res => {
         if (res.status === 200) {
+          this._notification.success(res.message);
           this._router.navigate(['company-list']);
         }
       })

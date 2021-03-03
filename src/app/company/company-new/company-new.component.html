@@ -12,7 +12,7 @@
       <h2>Basic Info</h2>
       <mat-form-field>
         <mat-label>Company name</mat-label>
-        <input matInput type="text" formControlName="companyName" />
+        <input matInput type="text" formControlName="companyName" required/>
         <mat-error *ngIf="form.get('companyName')?.invalid">
           {{ getControlError("companyName") }}
         </mat-error>
@@ -25,7 +25,7 @@
 
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" />
+        <input matInput type="email" formControlName="email" required/>
         <mat-error *ngIf="form.get('email')?.invalid">
           {{ getControlError("email") }}
         </mat-error>
@@ -33,7 +33,7 @@
 
       <mat-form-field>
         <mat-label>Phone number</mat-label>
-        <input matInput type="tel" formControlName="phoneNumber" />
+        <input matInput type="tel" formControlName="phoneNumber" required/>
         <mat-error *ngIf="form.get('phoneNumber')?.invalid">
           {{ getControlError("phoneNumber") }}
         </mat-error>
@@ -73,7 +73,7 @@
           <!-- name -->
           <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput type="text" formControlName="empName" />
+            <input matInput type="text" formControlName="empName" required/>
             <mat-error *ngIf="getEmployeeControl(i, 'empName').invalid">
               {{ getEmployeeControlError(i, 'empName') }}
             </mat-error>
@@ -92,7 +92,7 @@
           <!-- joinDate -->
           <mat-form-field>
             <mat-label>Join Date</mat-label>
-            <input matInput [matDatepicker]="jdPicker" formControlName="joinDate" type="datetime" />
+            <input matInput [matDatepicker]="jdPicker" formControlName="joinDate" type="datetime" required/>
             <mat-datepicker-toggle matSuffix [for]="jdPicker"></mat-datepicker-toggle>
             <mat-datepicker #jdPicker></mat-datepicker>
             <mat-error *ngIf="getEmployeeControl(i, 'joinDate').invalid">
@@ -103,7 +103,7 @@
           <!-- email -->
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" />
+            <input matInput type="email" formControlName="email" required/>
             <mat-error *ngIf="getEmployeeControl(i, 'email').invalid">
               {{ getEmployeeControlError(i, 'email') }}
             </mat-error>
@@ -112,7 +112,7 @@
           <!-- phoneNumber -->
           <mat-form-field>
             <mat-label>Phone number</mat-label>
-            <input matInput type="tel" formControlName="phoneNumber" />
+            <input matInput type="tel" formControlName="phoneNumber" required/>
             <mat-error *ngIf="getEmployeeControl(i, 'phoneNumber').invalid">
               {{ getEmployeeControlError(i, 'phoneNumber') }}
             </mat-error>
@@ -194,7 +194,7 @@
 
                 <mat-form-field>
                   <mat-label>School/College name</mat-label>
-                  <input matInput type="text" formControlName="instituteName" />
+                  <input matInput type="text" formControlName="instituteName" required/>
                   <mat-error *ngIf="getEducationInfoControl(i, j, 'instituteName').invalid">
                     {{ getEducationInfoControlError(i, j, 'instituteName') }}
                   </mat-error>
@@ -202,7 +202,7 @@
 
                 <mat-form-field>
                   <mat-label>Course name</mat-label>
-                  <input matInput type="text" formControlName="courseName" />
+                  <input matInput type="text" formControlName="courseName" required/>
                   <mat-error *ngIf="getEducationInfoControl(i, j, 'courseName').invalid">
                     {{ getEducationInfoControlError(i, j, 'courseName') }}
                   </mat-error>

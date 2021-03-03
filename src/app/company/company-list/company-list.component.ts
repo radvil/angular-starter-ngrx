@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fromEvent, Observable, Subject } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -22,8 +23,7 @@ import {
 import { ICompany } from '../interfaces/company';
 import { CompanyService } from '../services/company.service';
 import { ConfirmDialogComponent } from 'src/app/_shared/components';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/_core/services';
 
 @Component({
   selector: 'app-company-list',
@@ -52,7 +52,7 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private _companyService: CompanyService,
     private _dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _notification: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -108,7 +108,7 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .subscribe(({ status, message }) => {
         if (status === 200) {
-          this._snackBar.open(message, 'close', { duration: 3000 });
+          this._notification.success(message);
         }
       });
   }

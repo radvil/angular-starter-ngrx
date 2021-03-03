@@ -1,0 +1,60 @@
+@import ".~@angular/material/theming";
+
+$warning-color: #ffe600;
+$success-color: #0bce56;
+$info-color: #0bb1ce;
+
+@mixin rad-main-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+  .card {
+    background-color: mat-color($foreground);
+  }
+
+  a {
+    color: mat-color($foreground, text);
+
+    &:hover,
+    &.active {
+      color: mat-color($accent);
+    }
+  }
+
+  code {
+    color: mat-color($accent, lighter-contrast);
+    background-color: mat-color($accent, lighter);
+  }
+
+  p {
+    a {
+      color: mat-color($accent);
+
+      &:hover {
+        color: mat-color($accent, darker);
+      }
+    }
+  }
+
+  .error-notification-overlay {
+    color: black;
+    background-color: mat-color($warn);
+  }
+
+  .info-notification-overlay {
+    color: black;
+    background-color: $info-color;
+  }
+
+  .success-notification-overlay {
+    color: black;
+    background-color: $success-color;
+  }
+
+  .warning-notification-overlay {
+    color: black;
+    background-color: $warning-color;
+  }
+}
