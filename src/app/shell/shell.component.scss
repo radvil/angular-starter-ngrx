@@ -1,0 +1,19 @@
+.app-shell {
+	height: 100%;
+	width: 100%;
+
+  .wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .outlet-container {
+    padding: 1rem;
+    flex: 1 0 auto;
+    overflow: hidden;
+  }
+}
+mat-sidenav {
+  width: 220px;
+}

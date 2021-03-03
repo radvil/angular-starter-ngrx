@@ -1,0 +1,36 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+
+// reset defaults
+* {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  &:active,
+  :focus {
+    outline: none;
+  }
+}
+
+// global styles
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+}
+body {
+  margin: 0;
+}
+.branding-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 0 1rem;
+  img {
+    margin-right: .5rem;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

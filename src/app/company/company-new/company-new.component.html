@@ -1,0 +1,213 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <!-- Company Basic Info -->
+    <div class="basic-info">
+      <h2>Basic Info</h2>
+      <mat-form-field>
+        <mat-label>Company name</mat-label>
+        <input matInput type="text" formControlName="companyName" />
+        <mat-error *ngIf="form.get('companyName')?.invalid">
+          {{ getControlError("companyName") }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput type="text" formControlName="address" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.invalid">
+          {{ getControlError("email") }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Phone number</mat-label>
+        <input matInput type="tel" formControlName="phoneNumber" />
+        <mat-error *ngIf="form.get('phoneNumber')?.invalid">
+          {{ getControlError("phoneNumber") }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Employers -->
+    <div class="employees-info">
+      <h2>Employees Info</h2>
+
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="addEmployeeFormGroup()"
+      >
+        <mat-icon>add</mat-icon>&nbsp;Add Employee
+      </button>
+
+      <ng-container
+        formArrayName="empInfo"
+        *ngFor="let _ of empInfo.controls; let i = index"
+      >
+        <div class="form-group" [formGroupName]="i">
+          <div class="heading">
+            <span class="badge dark">Employee {{ i + 1 }}</span>
+            <button (click)="removeEmployeeFormGroup(i)" type="button" mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <!-- name -->
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="empName" />
+            <mat-error *ngIf="getEmployeeControl(i, 'empName').invalid">
+              {{ getEmployeeControlError(i, 'empName') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- designition -->
+          <mat-form-field>
+            <mat-label>Designation</mat-label>
+            <mat-select placeholder="Choose designation" formControlName="designation">
+              <mat-option *ngFor="let dsg of (designations$ | async)" [value]="dsg.key">
+                {{ dsg.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- joinDate -->
+          <mat-form-field>
+            <mat-label>Join Date</mat-label>
+            <input matInput [matDatePicker]="jdPicker" formControlName="joinDate" type="date" />
+            <mat-date-picker-toggle matSuffix [for]="jdPicker"></mat-date-picker-toggle>
+            <mat-date-picker #jdPicker></mat-date-picker>
+            <mat-error *ngIf="getEmployeeControl(i, 'joinDate').invalid">
+              {{ getEmployeeControlError(i, 'joinDate') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- email -->
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+            <mat-error *ngIf="getEmployeeControl(i, 'email').invalid">
+              {{ getEmployeeControlError(i, 'email') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- phoneNumber -->
+          <mat-form-field>
+            <mat-label>Phone number</mat-label>
+            <input matInput type="tel" formControlName="phoneNumber" />
+            <mat-error *ngIf="getEmployeeControl(i, 'phoneNumber').invalid">
+              {{ getEmployeeControlError(i, 'phoneNumber') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- skillInfo -->
+          <button (click)="addSkillFormGroup(i)" type="button" mat-stroked-button color="primary">
+            <mat-icon>add</mat-icon>&nbsp;Add skill info
+          </button>
+
+          <div class="fx-3-large">
+            <ng-container
+              formArrayName="skillInfo"
+              *ngFor="let skill of getSkillInfo(i).controls; let j = index"
+            >
+              <mat-card [formGroupName]="j">
+                <div style="margin-bottom: 1rem;">
+                  <span class="badge">Skill {{ j + 1 }}</span>
+                  <mat-icon (click)="removeSkillFormGroup(i, j)" class="delete">
+                    delete
+                  </mat-icon>
+                </div>
+
+                <mat-form-field>
+                  <mat-label>Skill set name</mat-label>
+                  <mat-select placeholder="Choose skill" formControlName="skillName">
+                    <mat-option *ngFor="let skill of (skills$ | async)" [value]="skill">
+                      {{ skill }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Skill rating (1 to 5)</mat-label>
+                  <input matInput type="number" formControlName="skillRating" />
+                  <mat-error *ngIf="getSkillInfoControl(i, j, 'skillRating').invalid">
+                    {{ getSkillInfoControlError(i, j, 'skillRating') }}
+                  </mat-error>
+                </mat-form-field>
+              </mat-card>
+            </ng-container>
+          </div>
+
+          <!-- educationInfo -->
+          <button (click)="addEducationFormGroup(i)" type="button" mat-stroked-button color="primary">
+            <mat-icon>add</mat-icon>&nbsp;Add education info
+          </button>
+
+          <div class="fx-2-large">
+            <ng-container
+              formArrayName="educationInfo"
+              *ngFor="let edu of getEducationInfo(i).controls; let j = index"
+            >
+              <mat-card [formGroupName]="j">
+                <span class="badge">Education info {{ j + 1 }}</span>
+                <mat-icon (click)="removeEducationFormGroup(i, j)" class="delete">
+                  delete
+                </mat-icon>
+
+                <mat-form-field>
+                  <mat-label>School/College name</mat-label>
+                  <input matInput type="text" formControlName="instituteName" />
+                  <mat-error *ngIf="getEducationInfoControl(i, j, 'instituteName').invalid">
+                    {{ getEducationInfoControlError(i, j, 'instituteName') }}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Course name</mat-label>
+                  <input matInput type="text" formControlName="courseName" />
+                  <mat-error *ngIf="getEducationInfoControl(i, j, 'courseName').invalid">
+                    {{ getEducationInfoControlError(i, j, 'courseName') }}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Completed year</mat-label>
+                  <input matInput [matDatePicker]="cyPicker" formControlName="completedYear" type="date" />
+                  <mat-date-picker-toggle matSuffix [for]="cyPicker"></mat-date-picker-toggle>
+                  <mat-date-picker #cyPicker></mat-date-picker>
+                  <mat-error *ngIf="getEducationInfoControl(i, j, 'completedYear').invalid">
+                    {{ getEducationInfoControlError(i, j, 'completedYear') }}
+                  </mat-error>
+                </mat-form-field>
+              </mat-card>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="form-action-buttons">
+      <button
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        (click)="cancelSubmit()"
+        mat-stroked-button
+        color="warn"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,13 @@
+<mat-nav-list>
+  <h3 class="menu-heading">Company</h3>
+  <a
+    *ngFor="let menuItem of menuList"
+    mat-list-item
+    (click)="closeOnClicked()"
+    [routerLink]="menuItem.link"
+    routerLinkActive="active"
+  >
+    <mat-icon>{{ menuItem.iconName }}</mat-icon>
+    <span>{{ menuItem.label }}</span>
+  </a>
+</mat-nav-list>

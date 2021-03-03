@@ -1,0 +1,85 @@
+h2 {
+  color: #3f51b5;
+}
+.badge {
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+
+  &.dark {
+    background-color: darkblue;
+  }
+}
+button[mat-raised-button], button[mat-stroked-button] {
+  border-radius: 0;
+}
+form {
+  width: 100%;
+}
+mat-form-field {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.form-action-buttons {
+  margin-top: 1rem;
+  display: flex;
+
+  button {
+    height: 3rem;
+    width: 7rem;
+    border-radius: 2rem;
+
+    &:nth-child(1) {
+      margin-right: 1rem;
+    }
+  }
+}
+.form-group .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fx-3-large {
+  margin: 1rem 0;
+  & > * {
+    margin-bottom: 1rem;
+    background-color: ivory;
+  }
+  // large
+  @media (min-width: 777px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > * {
+      margin-right: 1rem;
+      width: calc(33% - 42px - 1rem); // minPercent - 2*padding - margin-right
+    }
+  }
+}
+.fx-2-large {
+  margin: 1rem 0;
+  & > * {
+    margin-bottom: 1rem;
+    background-color: ghostwhite;
+  }
+  // large
+  @media (min-width: 777px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > * {
+      margin-right: 1rem;
+      width: calc(50% - 42px - 1rem);
+    }
+  }
+}
+mat-card mat-icon.delete {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: red;
+  cursor: pointer;
+}

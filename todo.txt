@@ -1,0 +1,135 @@
+1)Create the CRUD SPA.
+2)Use Angular version 11
+3)Use Angular Material design (Link)
+4)Please add side nav and show 2 menu Company List, New Company
+5)Use Lazy loading component (Not mandatory)
+6)Must use angular routing.
+
+
+List Page:
+1)Use Material Table with Pagination & Sort functionality & Search. 
+2)Table column names 
+3)Action Edit and Delete (Please use MatIcon)
+4)While click Delete show confirmation alert (If you can use sweetalert 2 or Angular Material)
+5)Show only 5 company data per page
+ COMPANY NAME, Email, Phone Number, Email, Created AT, Action
+
+Form Page:
+1)Use Material form and form field
+2)Use Reactive form
+3)Please add validation
+4)While submit need to validate the form and show error message in nice way
+5)After save the form show the message company details saved successfully. Please use this  MatSnackBar 
+
+Form Field Names:
+		Company Basic Info Block:
+1)Company Name (Required, max length: 50)
+2)Company Address
+3)Email (Required, max length: 100)
+4)Phone Number  (Required, max length: 15)
+
+Employee Info Block
+1)Employee Name (Required, max length: 25)
+2)Designation (Pre loaded select box Developer, Manager, System Admin, Team Lead, PM,)
+3)Join Date (Required, Only Past Date)
+4)Email (Required, max length: 100)
+5)Phone Number (Requried, max length: 15)
+
+Skills Info Block
+1.Skill Set Name (Need to add multiple Skill set, Required) Preloaded select box (If you can use virtual scroll. Store Skill data in local storage
+Java, Angular, CSS, HTML, JavaScript, UI, SQL, React, PHP,
+GIT, AWS, Python, Django, C, C++, C#, Unity, R, AI, NLP, Photoshop, Nodejs )
+2.Skill Rating (Required, Out of 5) (input type Number. Allowed only. 1 to 5)
+Education Info Block (User can enter the multiple Education Info)
+1)School Or College Name (Required, max length: 50)
+2)Course Name (Required, max length 25)
+3)Completed Year (Required, use mat date picker, format Month Year ( ex: Mar 2021))
+
+Save the all data in browser local storage. 
+
+
+
+Form output JSON
+
+{  
+  "companyName": "Google",  
+  "address": "11, Test Building, Test street, Test",  
+  "email": "test@gmail.com",  
+  "phoneNumber": "+1111111111111",  
+  "empInfo": [  
+    {  
+      "empName": "June",  
+      "designation": "1",  
+      "joinDate": "01/01/2021",  
+      "email": "june@gmail.com",  
+      "phoneNumber": "+1111111111111",  
+      "skillInfo": [  
+        {  
+          "skillName": "Angular",  
+          "skillRating": "4"  
+        },  
+        {  
+          "skillName": "HTML",  
+          "skillRating": "5"  
+        },  
+        {  
+          "skillName": "CSS",  
+          "skillRating": "5"  
+        },  
+        {  
+          "skillName": "JavaScript",  
+          "skillRating": "5"  
+        }  
+      ],  
+      "eductionInfo": [  
+        {  
+          "instituteName": "Test institute",  
+          "courseName": "BE CSE",  
+          "completedYear": "Mar 2021"  
+        },  
+        {  
+          "instituteName": "ABC institute",  
+          "courseName": "BE ECE",  
+          "completedYear": "Jan 2020"  
+        }  
+      ]  
+    },  
+    {  
+      "empName": "July",  
+      "designation": "1",  
+      "joinDate": "01/01/2020",  
+      "email": "june@gmail.com",  
+      "phoneNumber": "+1111111111111",  
+      "skillInfo": [  
+        {  
+          "skillName": "Java",  
+          "skillRating": "4"  
+        },  
+        {  
+          "skillName": "SQL",  
+          "skillRating": "5"  
+        },  
+        {  
+          "skillName": "UI",  
+          "skillRating": "5"  
+        },  
+        {  
+          "skillName": "JavaScript",  
+          "skillRating": "5"  
+        }  
+      ],  
+      "eductionInfo": [  
+        {  
+          "instituteName": "Test institute",  
+          "courseName": "BE CSE",  
+          "completedYear": "Mar 2021"  
+        },  
+        {  
+          "instituteName": "ABC institute",  
+          "courseName": "BE ECE",  
+          "completedYear": "Jan 2020"  
+        }  
+      ]  
+    }  
+  ]  
+}  

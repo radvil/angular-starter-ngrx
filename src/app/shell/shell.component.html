@@ -1,0 +1,21 @@
+<div class="app-shell">
+  <mat-sidenav-container>
+    <mat-sidenav
+      #sidebar
+      [mode]="sidebarMode"
+      [opened]="!(isHandset$ | async)"
+    >
+      <app-sidebar (toggleSideBar)="sidebar.toggle()"></app-sidebar>
+    </mat-sidenav>
+
+    <div class="wrapper">
+      <app-topbar (toggleSideBar)="sidebar.toggle()"></app-topbar>
+      <main class="outlet-container">
+        <router-outlet></router-outlet>
+      </main>
+
+      <!-- footer -->
+      <!-- <app-footer></app-footer> -->
+    </div>
+  </mat-sidenav-container>
+</div>
