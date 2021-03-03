@@ -1,0 +1,30 @@
+// reset defaults
+* {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  &:active,
+  :focus {
+    outline: none;
+  }
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0f0f0f;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  border-bottom-width: unset !important;
+  border-bottom-style: unset !important;
+}
+.mat-menu-panel {
+  border-radius: unset !important;
+  min-height: unset !important;
+}
+.mat-form-field-outline-start, 
+.mat-form-field-outline-end {
+  border-radius: unset !important;
+}
+.mat-menu-content:not(:empty) {
+  padding: unset !important;
+}
