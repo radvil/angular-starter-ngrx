@@ -12,16 +12,8 @@ export class LocalStorageService {
           .replace(env.appName, '')
           .toLowerCase()
           .split('.')
-          .map((key) =>
-            key
-              .split('-')
-              .map((token, index) =>
-                index === 0
-                  ? token
-                  : token.charAt(0).toUpperCase() + token.slice(1)
-              )
-              .join('')
-          );
+          .map((key) => key.split('-').join(''));
+          // console.log(stateKeys) // ["settings", "etc"]
 
         let currentStateRef = state;
         stateKeys.forEach((key, index) => {

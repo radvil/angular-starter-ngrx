@@ -29,12 +29,13 @@ export class TopbarComponent implements OnInit, OnDestroy {
     this._store
       .select($_theme)
       .pipe(takeUntil(this._destroy$))
-      .subscribe(theme => {this._currentTheme = theme});
+      .subscribe(theme => {
+        this._currentTheme = theme;
+      });
 
     this.isHandset$ = this._bpService.isHandset();
     // TODO GEt current route and match to hide topbar
     // console.log(this._route.children);
-
   }
 
   ngOnDestroy() {
@@ -46,7 +47,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
     const theme = (this._currentTheme === Theme.DARK_THEME)
       ? Theme.LIGHT_THEME
       : Theme.DARK_THEME
-    this._store.dispatch(ToggleAutoNightMode({ isAutoNightMode: false }));
     this._store.dispatch(ChangeTheme({ theme }));
   }
 

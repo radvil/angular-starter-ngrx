@@ -14,7 +14,7 @@ import { tap, withLatestFrom } from 'rxjs/operators';
 
 export const SETTINGS_KEY = 'SETTINGS';
 
-const INIT = of('angular-test-init-effect-trigger');
+const INIT = of('ng-test-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {
@@ -50,18 +50,17 @@ export class SettingsEffects {
     )
   }, { dispatch: false });
 
-  updateTheme = createEffect(() => merge(INIT, this._actions$
-    .pipe(ofType(act.ChangeTheme)))
-    .pipe(
-      withLatestFrom(this._store.select(sel.$_effectiveTheme)),
-      tap(([action, effectiveTheme]) => {
-        const classList= this._overlay.getContainerElement().classList;
-        const toBeRemoved = Array.from(classList).filter(c => c.includes('-theme'));
-        console.log(effectiveTheme, classList, toBeRemoved);
-        if (toBeRemoved.length) classList.remove(...toBeRemoved);
-        console.log(classList);
-        classList.add(effectiveTheme);
-      })
-    ),
-    { dispatch: false })
+  updateTheme = createEffect(() =>
+    merge(INIT, this._actions$.pipe(ofType(act.ChangeTheme)))
+      .pipe(
+        withLatestFrom(this._store.select(sel.$_effectiveTheme)),
+        tap(([action, effectiveTheme]) => {
+          const classList = this._overlay.getContainerElement().classList;
+          const toBeRemoved = Array.from(classList).filter(c => c.includes('-theme'));
+          if (!!toBeRemoved.length) classList.remove(...toBeRemoved);
+          classList.add(effectiveTheme);
+        })
+      ),
+    { dispatch: false }
+  )
 }

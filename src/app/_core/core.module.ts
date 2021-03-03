@@ -21,7 +21,6 @@ const PROVIDERS = [
   imports: [
     HttpClientModule,
 
-    // 3rd parties
     StoreModule.forRoot(reducer, { metaReducers }),
     EffectsModule.forRoot([SettingsEffects]),
     StoreRouterConnectingModule.forRoot(),

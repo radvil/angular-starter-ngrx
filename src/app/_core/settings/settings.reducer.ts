@@ -7,8 +7,8 @@ const reducer = createReducer(
   on(
     act.ChangeHour,
     act.ToggleAutoNightMode,
-    act.ChangeHour,
-    (state, action) => ({...state, action})
+    act.ChangeTheme,
+    (state, action) => ({ ...state, ...action })
   ),
 )
 
