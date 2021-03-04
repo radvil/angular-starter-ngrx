@@ -18,7 +18,7 @@ export class TopbarComponent implements OnInit {
   ngOnInit(): void {
     this.isHandset$ = this._bpService.isHandset();
     // TODO GEt current route and match to hide topbar
-    console.log(this._route.children);
+    // console.log(this._route.children);
     
   }
 

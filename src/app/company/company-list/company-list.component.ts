@@ -9,7 +9,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { fromEvent, Subject } from 'rxjs';
+import { fromEvent, Observable, Subject } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -41,6 +41,10 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
   private _destroy$ = new Subject();
   private _deleteDialogRef!: MatDialogRef<ConfirmDialogComponent>;
+  public isLoading$!: Observable<boolean>;
+  get noDocumentFound() {
+    return this.companiesDataSource?.filteredData.length < 1;
+  }
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild('filterInput', { static: true }) input!: ElementRef;
@@ -49,9 +53,10 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
     private _companyService: CompanyService,
     private _dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.isLoading$ = this._companyService.isLoading$;
     this._companyService
       .getCompanies()
       .pipe(

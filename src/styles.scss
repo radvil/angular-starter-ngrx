@@ -28,6 +28,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-form-field-outline-end {
   border-radius: unset !important;
 }
+.mat-menu-content:not(:empty) {
+  padding: unset !important;
+}
 
 // global styles
 html,

@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CompanyService } from '../services/company.service';
 
@@ -34,15 +36,14 @@ import { CompanyService } from '../services/company.service';
     MatButtonModule,
     MatCardModule,
     MatSnackBarModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild([
       {
         path: '',
         component: CompanyNewComponent,
       }
     ]),
-  ],
-  providers: [
-    CompanyService,
   ],
 })
 export class CompanyNewModule { }

@@ -5,3 +5,24 @@ mat-form-field {
 table[mat-table] {
   width: 100%;
 }
+
+.fx {
+  display: flex;
+
+  &.fx-cc {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.spinner-container{
+  width: 100%;
+  min-height: 10rem;
+  height: 100%;
+}
+
+.table-container {
+  overflow-x: auto;
+  table {
+    min-width: 600px;
+  }
+}

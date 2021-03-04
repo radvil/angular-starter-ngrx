@@ -1,4 +1,11 @@
-<mat-card>
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-progress-spinner mode="indeterminate" color="accent">
+    </mat-progress-spinner>
+  </div>
+</ng-template>
+
+<mat-card *ngIf="!(isLoading$ | async); else spinner">
   <form [formGroup]="form" (ngSubmit)="submitForm()">
     <!-- Company Basic Info -->
     <div class="basic-info">
@@ -53,7 +60,13 @@
         <div class="form-group" [formGroupName]="i">
           <div class="heading">
             <span class="badge dark">Employee {{ i + 1 }}</span>
-            <button (click)="removeEmployeeFormGroup(i)" type="button" mat-icon-button color="warn">
+            <button
+              (click)="removeEmployeeFormGroup(i)"
+              [matTooltip]="'Remove employee ' + (i + 1)"
+              matTooltipPosition="left"
+              mat-icon-button color="warn"
+              type="button"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </div>
@@ -118,7 +131,11 @@
               <mat-card [formGroupName]="j">
                 <div style="margin-bottom: 1rem;">
                   <span class="badge">Skill {{ j + 1 }}</span>
-                  <mat-icon (click)="removeSkillFormGroup(i, j)" class="delete">
+                  <mat-icon
+                    (click)="removeSkillFormGroup(i, j)"
+                    matTooltip="Remove"
+                    class="delete"
+                  >
                     delete
                   </mat-icon>
                 </div>
@@ -155,7 +172,11 @@
             >
               <mat-card [formGroupName]="j">
                 <span class="badge">Education info {{ j + 1 }}</span>
-                <mat-icon (click)="removeEducationFormGroup(i, j)" class="delete">
+                <mat-icon
+                  (click)="removeEducationFormGroup(i, j)"
+                  matTooltip="Remove"
+                  class="delete"
+                >
                   delete
                 </mat-icon>
 

@@ -15,6 +15,7 @@ export class CompanyNewComponent implements OnInit {
   public form!: FormGroup;
   public designations$!: Observable<{ key: number, label: string }[]>;
   public skills$!: Observable<string[]>;
+  public isLoading$!: Observable<boolean>;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -23,8 +24,13 @@ export class CompanyNewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading$ = this._companyService.isLoading$;
     this.designations$ = this._companyService.getDesignations();
     this.skills$ = this._companyService.getSkills();
+    this._initForm();
+  }
+
+  private _initForm(): void {
     this.form = this._formBuilder.group({
       companyName: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.maxLength(100), Validators.email]],
@@ -35,19 +41,26 @@ export class CompanyNewComponent implements OnInit {
     this.addEmployeeFormGroup();
   }
 
-  get empInfo(): FormArray {
-    return this.form.get('empInfo') as FormArray;
-  }
-
   submitForm(): void {
     console.log(this.form.value);
-    this._companyService.addCompany(this.form.value);
+    this._companyService
+      .addCompany(this.form.value)
+      .subscribe(res => {
+        if (res.status === 200) {
+          this._router.navigate(['company-list']);
+        }
+      })
   }
 
   cancelSubmit(): void {
     this._router.navigate(['company-list']);
   }
 
+  get empInfo(): FormArray {
+    return this.form.get('empInfo') as FormArray;
+  }
+
+  // #region employee
   addEmployeeFormGroup(): void {
     this.empInfo.push(
       this._formBuilder.group({
@@ -95,6 +108,7 @@ export class CompanyNewComponent implements OnInit {
 
     return "Please recheck employee validation";
   }
+  // #endregion
 
   // #region skillInfo
   getSkillInfo(empIndex: number): FormArray {

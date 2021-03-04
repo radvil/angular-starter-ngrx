@@ -14,6 +14,7 @@ import { CompanyListComponent } from './company-list.component';
 import { CompanyService } from '../services/company.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
-  providers: [CompanyService],
 })
 export class CompanyListModule { }
