@@ -27,3 +27,7 @@ mat-toolbar {
     font-weight: bold;
   }
 }
+[mat-menu-item].dark-mode {
+  display: flex;
+  align-items: center;
+}

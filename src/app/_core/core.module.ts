@@ -25,7 +25,7 @@ const PROVIDERS = [
     EffectsModule.forRoot([SettingsEffects]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
-      name: 'Angular Test',
+      name: 'Rad Dashboard',
       logOnly: environment.production
     }),
   ]

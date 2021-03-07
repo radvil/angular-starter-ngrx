@@ -1,0 +1,24 @@
+$rad-blue-primary: mat-palette($mat-indigo, 900);
+$rad-blue-accent: mat-palette($mat-pink, 500);
+$rad-blue-warn: mat-palette($mat-red, A700);
+
+// merge
+$rad-blue-theme: mat-light-theme(
+  $rad-blue-primary,
+  $rad-blue-accent,
+  $rad-blue-warn
+);
+
+$light-background-reset: map_merge(
+  map-get($rad-blue-theme, background),
+  (
+    background: #f2f2f2,
+  )
+);
+
+$rad-blue-theme: map_merge(
+  $rad-blue-theme,
+  (
+    background: $light-background-reset,
+  )
+);

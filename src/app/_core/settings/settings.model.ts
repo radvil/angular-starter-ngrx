@@ -1,6 +1,6 @@
 export enum Theme {
-  LIGHT_THEME = 'rad-light-theme',
-  DARK_THEME = 'rad-dark-theme'
+  BLUE_THEME = 'rad-blue-theme',
+  BLACK_THEME = 'rad-black-theme'
 }
 
 export interface SettingsState {
@@ -11,8 +11,8 @@ export interface SettingsState {
 }
 
 export const initialSettingsState = <SettingsState>{
-  theme: Theme.LIGHT_THEME,
+  theme: Theme.BLUE_THEME,
   isAutoNightMode: true,
-  nightTheme: Theme.DARK_THEME,
+  nightTheme: Theme.BLACK_THEME,
   hour: 0
 }

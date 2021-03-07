@@ -1,20 +1,20 @@
 <mat-toolbar
   [ngClass]="(isHandset$ | async) ? 'mat-elevation-z2' : 'mat-elevation-z4'"
-  color="primary"
+  [color]="toolbarColor"
 >
   <button mat-icon-button (click)="clickMenu.emit()">
     <mat-icon>menu</mat-icon>
   </button>
 
   <div routerLink="/" class="branding-container">
-    <img src="favicon.ico" alt="brand image" />
-    <span>Angular</span>
+    <img src="assets/icons/angular.png" width="36" alt="brand image" />
+    <span>rad-board</span>
   </div>
 
   <!-- topnav spacer -->
   <span class="spacer"></span>
 
-  <button mat-icon-button (click)="toggleDarkMode()">
+  <button mat-icon-button (click)="openThemeMenu()">
     <mat-icon>palette</mat-icon>
   </button>
 
@@ -29,6 +29,18 @@
         <h3>vforvodka</h3>
         <small>Radvil Loade</small>
       </div>
+    </div>
+
+    <div mat-menu-item class="dark-mode">
+      <mat-icon>format_color_fill</mat-icon>
+      <span>Dark mode</span>
+      <span class="spacer"></span>
+
+      <mat-slide-toggle
+        [checked]="currentTheme === 'rad-black-theme'"
+        (change)="onToggleDarkMode()"
+      >
+      </mat-slide-toggle>
     </div>
 
     <button mat-menu-item routerLink="/">

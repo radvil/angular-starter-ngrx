@@ -1,0 +1,32 @@
+$rad-black-primary: mat-palette($mat-indigo, 900);
+$rad-black-accent: mat-palette($mat-pink, 500);
+$rad-black-warn: mat-palette($mat-red, A700);
+
+$rad-black-theme: mat-dark-theme(
+  $rad-black-primary,
+  $rad-black-accent,
+  $rad-black-warn
+);
+
+// merge
+$dark-background-reset: map_merge(
+  map-get($rad-black-theme, background),
+  (
+    background: #0a0a0a,
+    app-bar: map-get($rad-grey, 900),
+    selected-button: map-get($rad-grey, 900),
+    card: map-get($rad-grey, 800),
+    dialog: map-get($rad-grey, 900),
+    raised-button: map-get($rad-grey, 800),
+    selected-disabled-button: map-get($rad-grey, 800),
+    unselected-chip: map-get($rad-grey, 700),
+    tooltip: map-get($rad-grey, 700),
+  )
+);
+
+$rad-black-theme: map_merge(
+  $rad-black-theme,
+  (
+    background: $dark-background-reset,
+  )
+);

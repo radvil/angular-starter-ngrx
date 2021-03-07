@@ -1,5 +1,3 @@
-
-
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Injectable, NgZone } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -9,12 +7,12 @@ import { merge, of } from 'rxjs';
 import { LocalStorageService } from '../services';
 import { AppState } from '../state';
 import * as act from './settings.actions';
-import * as sel from './settings.selectors';
+import { $_effectiveTheme, $_settings } from './settings.selectors';
 import { tap, withLatestFrom } from 'rxjs/operators';
 
 export const SETTINGS_KEY = 'SETTINGS';
 
-const INIT = of('ng-test-init-effect-trigger');
+const INIT = of('rad-board-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {
@@ -45,7 +43,7 @@ export class SettingsEffects {
         act.ChangeTheme,
         act.ChangeHour,
       ),
-      withLatestFrom(this._store.select(sel.$_settings)),
+      withLatestFrom(this._store.select($_settings)),
       tap(([action, settings]) => this._localStorage.setItem(SETTINGS_KEY, settings))
     )
   }, { dispatch: false });
@@ -53,7 +51,7 @@ export class SettingsEffects {
   updateTheme = createEffect(() =>
     merge(INIT, this._actions$.pipe(ofType(act.ChangeTheme)))
       .pipe(
-        withLatestFrom(this._store.select(sel.$_effectiveTheme)),
+        withLatestFrom(this._store.select($_effectiveTheme)),
         tap(([action, effectiveTheme]) => {
           const classList = this._overlay.getContainerElement().classList;
           const toBeRemoved = Array.from(classList).filter(c => c.includes('-theme'));

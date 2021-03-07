@@ -1,5 +1,6 @@
 @import "~material-design-icons/iconfont/material-icons.css";
+
+@import "./themes/_index.scss";
+
 @import "./resets.scss";
-@import "./main.scss";
-@import "./main.theme.scss";
-@import "./material.theme.scss";
+@import "./app.scss";

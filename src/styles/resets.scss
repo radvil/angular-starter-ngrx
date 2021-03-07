@@ -13,7 +13,9 @@
 ::-webkit-scrollbar-thumb {
   background-color: #0f0f0f;
 }
-th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
   border-bottom-width: unset !important;
   border-bottom-style: unset !important;
 }
@@ -21,10 +23,17 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   border-radius: unset !important;
   min-height: unset !important;
 }
-.mat-form-field-outline-start, 
+.mat-form-field-outline-start,
 .mat-form-field-outline-end {
   border-radius: unset !important;
 }
 .mat-menu-content:not(:empty) {
   padding: unset !important;
+}
+
+// black theme reset
+.rad-black-theme {
+  .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: #00000066;
+  }
 }
