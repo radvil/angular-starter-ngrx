@@ -29,8 +29,8 @@ export class ShellComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.theme$ = this._store.select($_theme);
     this.isHandset$.pipe(
+      tap(isHandset => this.sidebarMode = isHandset ? 'over' : 'side'),
       takeUntil(this._destroy$),
-      tap(isHandset => this.sidebarMode = isHandset ? 'over' : 'side')
     )
       .subscribe();
   }

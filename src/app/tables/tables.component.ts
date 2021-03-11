@@ -69,35 +69,35 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
     this._customerService
       .getLabelOptions()
       .pipe(
-        takeUntil(this._destroy$),
         tap((labels) => {
           this.labelOptions = labels;
-        })
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
 
     this._customerService
       .getColumnOptions()
       .pipe(
-        takeUntil(this._destroy$),
         tap((items) => {
           this.columnOptions = items;
           this.visibleColumns = this.columnOptions
-            .filter((c) => !!c.show)
-            .map((c) => c.columnName);
-        })
+          .filter((c) => !!c.show)
+          .map((c) => c.columnName);
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
 
     this._customerService
       .getCustomers()
       .pipe(
-        takeUntil(this._destroy$),
         tap((customers) => {
           this.customersDataSource = new MatTableDataSource(customers);
           this.customersDataSource.paginator = this.paginator;
           this.customersDataSource.sort = this.sort;
-        })
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
   }
@@ -199,7 +199,6 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
     const input = event.target as HTMLInputElement;
     fromEvent(input, 'keyup')
       .pipe(
-        takeUntil(this._destroy$),
         filter(() => this.headerMode === 'SEARCH'),
         debounceTime(500),
         distinctUntilChanged(),
@@ -211,7 +210,8 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
           } else {
             this.totalResults = 0;
           }
-        })
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
   }
@@ -248,7 +248,6 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
       })
       .beforeClosed()
       .pipe(
-        takeUntil(this._destroy$),
         filter((formValue) => !!formValue),
         tap((formValue: ICustomer) => {
           if (mode === 'NEW') {
@@ -259,6 +258,7 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
             this._customerService.updateCustomer(formValue);
           }
         }),
+        takeUntil(this._destroy$),
       );
 
     dialogBeforeClosed$.subscribe(() => {

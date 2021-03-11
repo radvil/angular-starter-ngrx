@@ -60,12 +60,12 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
     this._companyService
       .getCompanies()
       .pipe(
-        takeUntil(this._destroy$),
         tap((companies) => {
           this.companiesDataSource = new MatTableDataSource(companies);
           this.companiesDataSource.sort = this.sort;
           this.companiesDataSource.paginator = this.paginator;
-        })
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
   }
@@ -75,14 +75,14 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     fromEvent(inputElement, 'keyup')
       .pipe(
-        takeUntil(this._destroy$),
         debounceTime(500),
         distinctUntilChanged(),
         tap(() => {
           this.companiesDataSource.filter = inputElement.value
             .trim()
             .toLowerCase();
-        })
+        }),
+        takeUntil(this._destroy$),
       )
       .subscribe();
   }
@@ -102,9 +102,9 @@ export class CompanyListComponent implements OnInit, AfterViewInit, OnDestroy {
     this._deleteDialogRef
       .beforeClosed()
       .pipe(
-        takeUntil(this._destroy$),
         filter((confirmed) => !!confirmed),
-        switchMap(() => this._companyService.deleteCompany(companyId))
+        switchMap(() => this._companyService.deleteCompany(companyId)),
+        takeUntil(this._destroy$),
       )
       .subscribe(({ status, message }) => {
         if (status === 200) {
