@@ -20,7 +20,11 @@ const routes: Routes = [
   {
     path: 'add-company',
     loadChildren: () => import('./company/company-new/company-new.module').then(m => m.CompanyNewModule)
-  }
+  },
+  {
+    path: 'tables',
+    loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
+  },
 ];
 
 @NgModule({

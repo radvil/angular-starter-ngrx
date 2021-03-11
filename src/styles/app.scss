@@ -22,15 +22,31 @@ body {
   }
 }
 .badge {
-  background-color: cornflowerblue;
-  color: white;
+  background-color: deeppink;
   font-weight: bold;
+  color: #222;
   font-size: 12px;
   padding: 2px 10px;
   border-radius: 20px;
 
   &.dark {
     background-color: navy;
+    color: #fff;
+  }
+  &.red {
+    background-color: red;
+  }
+  &.orange {
+    background-color: darkorange;
+  }
+  &.yellow {
+    background-color: gold;
+  }
+  &.green {
+    background-color: mediumseagreen;
+  }
+  &.blue {
+    background-color: #2bc6e8;
   }
 }
 .themes-menu-dialog {
@@ -57,5 +73,51 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+  }
+}
+.fx-spacer {
+  flex: 1 0 auto;
+}
+.rad-dialog-overlay {
+  max-width: 90vw !important;
+
+  .mat-dialog-container {
+    padding: 0;
+  }
+  .rad-dialog-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+    }
+  }
+  .rad-dialog-content {
+    padding: 24px;
+  }
+  form {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  [matPrefix] {
+    margin-right: 1rem;
+  }
+  .fx-2-large {
+    // large device
+    @media (min-width: 777px) {
+      display: flex;
+      justify-content: space-between;
+      & > * {
+        width: 48%;
+      }
+    }
   }
 }

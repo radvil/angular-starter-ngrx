@@ -1,0 +1,289 @@
+<mat-card class="table-card mat-elevation-z4">
+  <div [ngSwitch]="headerMode" class="table-header">
+    <!-- SELECT -->
+    <ng-container *ngSwitchCase="'SELECT'">
+      <div class="header-text">
+        <strong>{{ selectionsLength + ' selected' }}</strong>
+      </div>
+
+      <button mat-icon-button matTooltip="Undo selections" (click)="undoSelection()">
+        <mat-icon>undo</mat-icon>
+      </button>
+
+      <div class="fx-spacer"></div>
+      <div class="header-action">
+        <button
+          (click)="deleteSelections()"
+          matTooltip="Delete selections"
+          mat-icon-button color="warn"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- SEARCH -->
+    <ng-container *ngSwitchCase="'SEARCH'">
+      <button
+        mat-icon-button
+        class="back"
+        (click)="
+          headerMode='DEFAULT';
+          customerSelections.clear();
+        "
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <div class="input-filter">
+        <mat-icon>search</mat-icon>
+        <input (keyup)="search($event)" type="text" placeholder="Search.." autofocus/>
+      </div>
+
+      <span class="fx-spacer"></span>
+      <strong *ngIf="!isHandset">{{ searchResultText }}</strong>
+    </ng-container>
+
+    <!-- DEFAULT -->
+    <ng-container *ngSwitchDefault>
+      <div class="header-text">
+        <strong>Customers</strong>
+      </div>
+
+      <div class="fx-spacer"></div>
+
+      <div class="header-actions">
+        <button mat-icon-button (click)="headerMode='SEARCH'">
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <button (click)="openCustomerForm('NEW')" mat-icon-button>
+          <mat-icon>person_add_alt</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          aria-label="customer menu"
+          [matMenuTriggerFor]="tableMenu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #tableMenu="matMenu">
+          <ng-template matMenuContent>
+            <div *ngFor="let c of columnOptions; let i=index" mat-menu-item class="checkbox-options">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? toggleColumnVisibility(i): null"
+                [checked]="c.show"
+              ></mat-checkbox>
+              <span class="label">{{ c.columnName }}</span>
+            </div>
+          </ng-template>
+        </mat-menu>
+      </div>
+    </ng-container>
+  </div>
+
+  <table
+    mat-table
+    matSort
+    class="full-width tr-4 td-p-1"
+    [dataSource]="customersDataSource"
+  >
+    <!-- check selections -->
+    <ng-container matColumnDef="selections">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? toggleAndSwitchMode() : null"
+          [checked]="customerSelections.hasValue() && isAllSelected"
+          [indeterminate]="customerSelections.hasValue() && !isAllSelected"
+        ></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row" class="checkBox">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? toggleAndSwitchMode(row) : null"
+          [checked]="customerSelections.isSelected(row)"
+        ></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- photo -->
+    <ng-container matColumnDef="photo">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row" class="photo">
+        <img [src]="row.photo" [alt]="row.name" width="40" />
+      </td>
+    </ng-container>
+
+    <!-- name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let row" class="name">{{ getCustomerFullname(row) }}</td>
+    </ng-container>
+
+    <!-- firstName -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>First name</th>
+      <td mat-cell *matCellDef="let row" class="firstName">
+        {{ row.firstName }}
+      </td>
+    </ng-container>
+
+    <!-- lastName -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Last name</th>
+      <td mat-cell *matCellDef="let row" class="lastName">
+        {{ row.lastName }}
+      </td>
+    </ng-container>
+
+    <!-- address -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let row">{{ getCustomerAddress(row) }}</td>
+    </ng-container>
+
+    <!-- street -->
+    <ng-container matColumnDef="street">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Street</th>
+      <td mat-cell *matCellDef="let row">{{ row.address?.street }}</td>
+    </ng-container>
+
+    <!-- zipCode -->
+    <ng-container matColumnDef="zipCode">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>ZipCode</th>
+      <td mat-cell *matCellDef="let row">{{ row.address?.zipCode }}</td>
+    </ng-container>
+
+    <!-- city -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>City</th>
+      <td mat-cell *matCellDef="let row">{{ row.address?.city }}</td>
+    </ng-container>
+
+    <!-- email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Email address</th>
+      <td mat-cell *matCellDef="let row">{{ row.contact?.email }}</td>
+    </ng-container>
+
+    <!-- contact -->
+    <ng-container matColumnDef="contact">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</th>
+      <td mat-cell *matCellDef="let row">{{ row.contact?.phone }}</td>
+    </ng-container>
+
+    <!-- labels -->
+    <ng-container matColumnDef="labels">
+      <th mat-header-cell *matHeaderCellDef>Labels</th>
+      <td mat-cell *matCellDef="let row">
+        <ng-container *ngFor="let label of row.labels">
+          <span
+            class="badge"
+            [ngClass]="{
+              dark: label === 'Lead',
+              yellow: label === 'In Progress',
+              blue: label === 'New',
+              green: label === 'Completed'
+            }"
+            >{{ label }}</span
+          >&nbsp;
+        </ng-container>
+
+        <button [matMenuTriggerFor]="labelMenu" mat-icon-button>
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <mat-menu #labelMenu="matMenu">
+          <ng-template matMenuContent>
+            <div 
+              *ngFor="let l of labelOptions; let j=index"
+              class="checkbox-options"
+              mat-menu-item
+            >
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? updateCustomerLabel(row.id, l): null"
+                [checked]="hasLabel(row, l)"
+              ></mat-checkbox>
+              <span class="label">{{ l }}</span>
+            </div>
+          </ng-template>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <!-- createdAt -->
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Join Date</th>
+      <td mat-cell *matCellDef="let row" class="createdAt">
+        {{ row.createdAt | date }}
+      </td>
+    </ng-container>
+
+    <!-- action -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="actionMenu"
+          aria-label="Action menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #actionMenu="matMenu">
+          <ng-template matMenuContent>
+            <button mat-menu-item (click)="openCustomerForm('EDIT', row)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="deleteSelections(row.id)">
+              <mat-icon color="warn">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </ng-template>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <!-- visibleColumns -->
+    <tr mat-header-row *matHeaderRowDef="visibleColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: visibleColumns"
+      (contextmenu)="onContextMenu($event, row)"
+    ></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 50, 100]"></mat-paginator>
+</mat-card>
+
+<!-- contextMenu -->
+<div
+  style="visibility: hidden; position: fixed"
+  [style.left]="contextMenuPosition.x"
+  [style.top]="contextMenuPosition.y"
+  [matMenuTriggerFor]="contextMenu"
+></div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-item="item">
+    <button mat-menu-item (click)="toggleAndSwitchMode(item)">
+      <mat-icon [color]="customerSelections.isSelected(item) && 'accent'">
+        {{ customerSelections.isSelected(item) ? 'close' : 'checked' }}
+      </mat-icon>
+      {{ customerSelections.isSelected(item) ? 'Deselect' : 'Select' }}
+    </button>
+    <button mat-menu-item (click)="openCustomerForm('EDIT', item)">
+      <mat-icon>edit</mat-icon>
+      Edit
+    </button>
+    <button mat-menu-item (click)="deleteSelections(item.id)">
+      <mat-icon color="warn">delete</mat-icon>
+      Delete
+    </button>
+  </ng-template>
+</mat-menu>
