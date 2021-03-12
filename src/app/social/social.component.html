@@ -1,0 +1,27 @@
+<mat-card class="cover-card">
+  <div class="cover-card--content">
+    <div class="profile-image">
+      <img src="assets/images/portrait.png" alt="user profile" />
+    </div>
+    <div class="headtitle">V for Vodka</div>
+    <div class="subtitle">( Web Developer )</div>
+  </div>
+</mat-card>
+
+<mat-card class="tabs" style="box-shadow: none;">
+  <nav mat-tab-nav-bar>
+    <a
+      mat-tab-link
+      *ngFor="let tabItem of tabItems"
+      routerLinkActive #rla="routerLinkActive"
+      [routerLink]="tabItem.route"
+      [active]="rla.isActive"
+      [disabled]="tabItem.disabled"
+    >
+      <mat-icon>{{ tabItem.icon }}</mat-icon>
+      {{ tabItem.label }}
+    </a>
+  </nav>
+</mat-card>
+
+<router-outlet></router-outlet>

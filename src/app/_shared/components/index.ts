@@ -6,3 +6,6 @@ export * from './themes-dialog/themes-dialog.component';
 
 export * from './customer-form/customer-form.module';
 export * from './customer-form/customer-form.component';
+
+export * from  './row-item/row-item.module';
+export * from  './row-item/row-item.component';

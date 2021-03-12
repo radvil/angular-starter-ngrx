@@ -1,4 +1,6 @@
 // global styles
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 html,
 body {
   height: 100%;
@@ -6,8 +8,8 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  // font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 .branding-container {
   display: flex;

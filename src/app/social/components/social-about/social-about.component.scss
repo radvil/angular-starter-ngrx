@@ -1,0 +1,29 @@
+.about-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+app-row-item {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+  .mat-caption {
+    color: #999;
+  }
+}
+
+@media (min-width: 777px) {
+  .about-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  app-row-item {
+    // flex-basis: calc(50% - 4px);
+    flex-basis: 50%;
+  }
+}

@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'tables',
     loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
   },
+  {
+    path: 'social',
+    loadChildren: () => import('./social/social.module').then(m => m.SocialModule)
+  },
 ];
 
 @NgModule({

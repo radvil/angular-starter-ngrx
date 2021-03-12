@@ -8,7 +8,7 @@ export const menuList: MenuItem[] = [
 	{ link: '/add-company', label: 'New company', iconName: 'add' },
 	{ link: '/company-list', label: 'Company list', iconName: 'business' },
 	{ link: '/tables', label: 'Tables', iconName: 'toc' },
-	{ link: '/skills-list', label: 'Manage skills', iconName: 'pool' },
+	{ link: '/social', label: 'Social', iconName: 'account_circle' },
 	{ link: '/about', label: 'About' },
 	{ link: '/settings', label: 'Settings' }
 ];
