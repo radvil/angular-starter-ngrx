@@ -16,12 +16,12 @@ export class SocialComponent implements OnInit {
   public tabItems: TabItem[] = [
     {
       label: 'About',
-      icon: 'account_circle',
+      icon: 'info',
       route: '/social/profile',
     },
     {
       label: 'Timeline',
-      icon: 'whatshot',
+      icon: 'timeline',
       route: '/social/timeline',
     },
     {

@@ -1,0 +1,20 @@
+<mat-card>
+  <div class="card-header">
+    <h2>Friends</h2>
+    <p class="link" (click)="$event ? showAll.emit($event) : null">
+      See All Friends
+    </p>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="friends" class="item-grid-container">
+    <div
+      matRipple
+      class="item"
+      *ngFor="let f of friends"
+      (click)="$event ? showById.emit(f.id) : null"
+    >
+      <img [src]="f.photo" [alt]="f.username" />
+      <b>{{ f.username }}</b>
+    </div>
+  </div>
+</mat-card>

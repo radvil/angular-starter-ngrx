@@ -1,0 +1,32 @@
+h2 {
+  font-weight: bold;
+}
+p.link {
+  cursor: pointer;
+  color: navy;
+  font-weight: bold;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-grid-container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  .item {
+    max-width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    text-align: center;
+    cursor: pointer;
+    img {
+      border-radius: 6px;
+      place-self: stretch center;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

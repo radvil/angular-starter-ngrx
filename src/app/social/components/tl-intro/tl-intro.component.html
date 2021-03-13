@@ -1,0 +1,18 @@
+<mat-card>
+  <h2>Intro</h2>
+  <mat-divider></mat-divider>
+  <div class="card-content">
+    <div class="join">
+      <mat-icon>event</mat-icon>
+      <span>Joined March 2011</span>
+    </div>
+    <button mat-button>Edit Details</button>
+    <button mat-button>Add Hobbies</button>
+    <div class="item-grid-container">
+      <div matRipple class="item" *ngFor="let i of images">
+        <img [src]="i" alt="photo" />
+      </div>
+    </div>
+    <button mat-button>Edit Features</button>
+  </div>
+</mat-card>

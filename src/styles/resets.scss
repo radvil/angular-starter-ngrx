@@ -13,19 +13,13 @@ table {
   }
 }
 ::-webkit-scrollbar {
-  width: .5rem;
-  height: .5rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #666;
   border-radius: 20px;
 }
-// th.mat-header-cell,
-// td.mat-cell,
-// td.mat-footer-cell {
-//   border-bottom-width: unset !important;
-//   border-bottom-style: unset !important;
-// }
 .mat-menu-panel {
   border-radius: unset !important;
   min-height: unset !important;

@@ -1,19 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { RouterModule, Routes } from '@angular/router';
 
 import { RowItemModule } from '../_shared/components';
-import { SocialAboutComponent } from './components/social-about/social-about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SocialComponent } from './social.component';
 import { TimelineComponent } from './timeline/timeline.component';
-
+import {
+  SocialAboutComponent,
+  TlIntroComponent,
+  TlPhotosComponent,
+  TlAddPostComponent,
+} from './components';
+import { TlFriendsComponent } from './components/tl-friends/tl-friends.component';
 
 const routes: Routes = [
   {
@@ -23,20 +29,20 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'profile',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'profile',
         component: ProfileComponent,
-        data: { title: 'User Profile' }
+        data: { title: 'User Profile' },
       },
       {
         path: 'timeline',
         component: TimelineComponent,
-        data: { title: 'User Timeline' }
+        data: { title: 'User Timeline' },
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
@@ -45,6 +51,10 @@ const routes: Routes = [
     ProfileComponent,
     TimelineComponent,
     SocialAboutComponent,
+    TlIntroComponent,
+    TlPhotosComponent,
+    TlFriendsComponent,
+    TlAddPostComponent,
   ],
   imports: [
     CommonModule,
@@ -55,8 +65,9 @@ const routes: Routes = [
     MatTabsModule,
     MatSelectModule,
     MatDividerModule,
+    MatRippleModule,
 
     RowItemModule,
-  ]
+  ],
 })
-export class SocialModule { }
+export class SocialModule {}

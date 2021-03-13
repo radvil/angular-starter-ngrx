@@ -6,7 +6,7 @@ export const customers: ICustomer[] = [
     name: "injoker",
     firstName: "Kael",
     lastName: "Injoker",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/1.png",
     address: {
       city: "Tanggerang Selatan",
       street: "548 Cypres Avenue",
@@ -25,7 +25,7 @@ export const customers: ICustomer[] = [
     name: "lanaya",
     firstName: "Templar",
     lastName: "Assassins",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/2.png",
     address: {
       city: "Radiant Utara",
       street: "548 Cypres Avenue",
@@ -44,7 +44,7 @@ export const customers: ICustomer[] = [
     name: "rylai",
     firstName: "Crystal",
     lastName: "Maiden",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/3.png",
     address: {
       city: "Radiant Tenggara",
       street: "548 Cypres Avenue",
@@ -63,7 +63,7 @@ export const customers: ICustomer[] = [
     name: "lina",
     firstName: "Lina",
     lastName: "Slayer",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/4.png",
     address: {
       city: "Dire Timur",
       street: "548 Cypres Avenue",
@@ -82,7 +82,7 @@ export const customers: ICustomer[] = [
     name: "void",
     firstName: "Faceless",
     lastName: "Void",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/5.png",
     address: {
       city: "Radiant Barat",
       street: "548 Cypres Avenue",
@@ -101,7 +101,7 @@ export const customers: ICustomer[] = [
     name: "bristleback",
     firstName: "Bristle",
     lastName: "Back",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/6.png",
     address: {
       city: "Roshan Selatan",
       street: "548 Cypres Avenue",
@@ -120,7 +120,7 @@ export const customers: ICustomer[] = [
     name: "Luna",
     firstName: "Luna",
     lastName: "Moonrider",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/7.png",
     address: {
       city: "Dire Tenggara",
       street: "548 Cypres Avenue",
@@ -139,7 +139,7 @@ export const customers: ICustomer[] = [
     name: "mirana",
     firstName: "Mirana",
     lastName: "IDK",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/8.png",
     address: {
       city: "Radiant Tenggara",
       street: "548 Cypres Avenue",
@@ -158,7 +158,7 @@ export const customers: ICustomer[] = [
     name: "traxex",
     firstName: "Traxex",
     lastName: "Drow Ranger",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/9.png",
     address: {
       city: "Dire",
       street: "548 Cypres Avenue",
@@ -177,7 +177,7 @@ export const customers: ICustomer[] = [
     name: "aleria",
     firstName: "Aleria",
     lastName: "Windranger",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/2.png",
     address: {
       city: "Radiant",
       street: "548 Cypres Avenue",
@@ -196,7 +196,7 @@ export const customers: ICustomer[] = [
     name: "io",
     firstName: "Wisp",
     lastName: "Io",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/7.png",
     address: {
       city: "Radiant Selatan",
       street: "548 Cypres Avenue",
@@ -215,7 +215,7 @@ export const customers: ICustomer[] = [
     name: "schendelzhare",
     firstName: "Vengeful",
     lastName: "Spirit",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/5.png",
     address: {
       city: "Dire Utara",
       street: "548 Cypres Avenue",
@@ -234,7 +234,7 @@ export const customers: ICustomer[] = [
     name: "bloodseeker",
     firstName: "Strygwyr",
     lastName: "Bloodseeker",
-    photo: "assets/images/portrait.png",
+    photo: "assets/images/portraits/6.png",
     address: {
       city: "Radiant Selatan",
       street: "548 Cypres Avenue",

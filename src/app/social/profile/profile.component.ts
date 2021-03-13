@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   public images = [
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
-    'assets/images/portrait.png',
+    'assets/images/portraits/1.png',
+    'assets/images/portraits/2.png',
+    'assets/images/portraits/3.png',
+    'assets/images/portraits/4.png',
+    'assets/images/portraits/5.png',
+    'assets/images/portraits/6.png',
+    'assets/images/portraits/7.png',
+    'assets/images/portraits/8.png',
   ];
 
   constructor() { }

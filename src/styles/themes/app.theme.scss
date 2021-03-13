@@ -11,8 +11,8 @@ $info-color: #0bb1ce;
   $warn: map-get($theme, warn);
   $foreground: map-get($theme, foreground);
 
-  .card {
-    background-color: mat-color($foreground);
+  .rad-card {
+    background-color: mat-color($primary, default-contrast);
   }
 
   a {

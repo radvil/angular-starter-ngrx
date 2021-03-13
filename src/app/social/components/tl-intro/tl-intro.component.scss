@@ -1,0 +1,41 @@
+h2 {
+  font-weight: bold;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin-top: 1rem;
+  }
+  .join {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    mat-icon {
+      margin-right: 1rem;
+    }
+  }
+}
+[mat-button] {
+  background: #70707027;
+  font-weight: bold;
+  height: 36px;
+  border-radius: 6px;
+}
+.item-grid-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .5rem;
+  .item {
+    place-self: stretch center;
+    max-width: 100%;
+    border-radius: 6px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    border-radius: 6px;
+  }
+  }
+}

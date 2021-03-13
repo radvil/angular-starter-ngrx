@@ -1,1 +1,67 @@
-<p>timeline works!</p>
+<div class="container">
+  <aside>
+    <section>
+      <app-tl-intro></app-tl-intro>
+    </section>
+
+    <section>
+      <app-tl-photos
+        [images]="photos"
+        (showAll)="showAllPhotos()"
+      ></app-tl-photos>
+    </section>
+
+    <section>
+      <app-tl-friends
+        [friends]="friends"
+        (show)="showFriend($event)"
+        (showAll)="showAllFriends()"
+      ></app-tl-friends>
+    </section>
+
+    <section>
+      <span class="cp"> · RDashboard © 2021</span>
+    </section>
+  </aside>
+
+  <!-- TOFO main timeline -->
+  <main>
+    <section>
+      <app-tl-add-post [user]="currentUser"></app-tl-add-post>
+    </section>
+
+    <section>
+      <mat-card class="post-options">
+        <div class="card-header">
+          <h2><b>Posts</b></h2>
+          <span class="fx-spacer"></span>
+          <div class="options">
+            <button mat-button>
+              <mat-icon>filter_list</mat-icon>
+              <span>Filters</span>
+            </button>
+            <button mat-button>
+              <mat-icon>settings</mat-icon>
+              <span>Manage Posts</span>
+            </button>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="tabs">
+          <div matRipple class="tab-item active">
+            <mat-icon>list</mat-icon>
+            <span>List View</span>
+          </div>
+          <div matRipple class="tab-item">
+            <mat-icon>view_compact</mat-icon>
+            <span>Grid View</span>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+
+    <!-- TODO: // postCard -->
+  </main>
+</div>
