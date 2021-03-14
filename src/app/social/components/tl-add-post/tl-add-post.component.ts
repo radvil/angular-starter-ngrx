@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tl-add-post',
+  selector: 'tl-add-post',
   templateUrl: './tl-add-post.component.html',
   styleUrls: ['./tl-add-post.component.scss']
 })

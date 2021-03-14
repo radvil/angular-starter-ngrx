@@ -18,8 +18,9 @@ import {
   TlIntroComponent,
   TlPhotosComponent,
   TlAddPostComponent,
+  TlFriendsComponent,
+  TlPostComponent,
 } from './components';
-import { TlFriendsComponent } from './components/tl-friends/tl-friends.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,7 @@ const routes: Routes = [
     TlPhotosComponent,
     TlFriendsComponent,
     TlAddPostComponent,
+    TlPostComponent,
   ],
   imports: [
     CommonModule,

@@ -64,6 +64,7 @@ export class TimelineComponent implements OnInit {
       photo: 'assets/images/portraits/9.png',
     },
   ];
+  public posts = new Array(6);
   public currentUser = {
     id: "1",
     username: "V for Vodka",

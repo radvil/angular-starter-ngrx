@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tl-intro',
+  selector: 'tl-intro',
   templateUrl: './tl-intro.component.html',
   styleUrls: ['./tl-intro.component.scss']
 })

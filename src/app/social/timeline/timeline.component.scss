@@ -49,13 +49,27 @@ mat-card.post-options {
 @media (min-width: 777px) {
   .container {
     display: flex;
+    justify-content: center;
   }
   aside {
     flex: 0.8;
+    max-width: 400px;
   }
   main {
     flex: 1.2;
     margin-left: 1rem;
+    max-width: 500px;
+
+    // overflow: hidden;
+    // .main-scroll {
+    //   overflow: auto;
+    //   max-height: 200vh;
+    //   -ms-overflow-style: none;
+    //   scrollbar-width: none;
+    //   &::-webkit-scrollbar {
+    //     display: none;
+    //   }
+    // }
   }
   .options [mat-button] span {
     display: block;

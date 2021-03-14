@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-tl-friends',
+  selector: 'tl-friends',
   templateUrl: './tl-friends.component.html',
   styleUrls: ['./tl-friends.component.scss']
 })

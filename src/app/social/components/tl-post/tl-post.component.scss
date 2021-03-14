@@ -1,0 +1,84 @@
+.post-card {
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem .5rem;
+}
+.post-user {
+  display: flex;
+  align-items: center;
+  img {
+    border-radius: 50%;
+  }
+  .header--text {
+    margin-left: 1rem;
+    font-weight: bold;
+    // line-height: 10px;
+    .date {
+      color: #666;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      mat-icon {
+        margin-left: 0.5rem;
+        font-size: 12px;
+        height: unset;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.content {
+  padding: 0 1rem;
+}
+.meta {
+  display: flex;
+  color: #666;
+  padding: .5rem 1rem;
+  > * {
+    cursor: pointer;
+  }
+  .icons {
+    display: flex;
+  }
+  .names {
+    margin-left: .5rem;
+    display: none;
+  }
+  .reactions-count {
+    margin-left: .5rem;
+  }
+}
+.actions {
+  height: 50px;
+  display: flex;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+  & > * {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
+    mat-icon {
+      margin-right: .5rem;
+    }
+  }
+}
+
+@media (min-width: 777px ) {
+  .meta {
+    .names {
+      display: block;
+    }
+    .reactions-count {
+      display: none;
+    }
+  }
+}

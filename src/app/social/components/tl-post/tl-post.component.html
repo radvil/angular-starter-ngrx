@@ -1,0 +1,51 @@
+<mat-card class="post-card">
+  <div class="header">
+    <div class="post-user">
+      <img [src]="user.photo" alt="username" width="46" />
+      <div class="header--text">
+        <p class="username">{{ user.username }}</p>
+        <div class="date">
+          June 13 2020
+          <mat-icon>public</mat-icon>
+        </div>
+      </div>
+    </div>
+    <span class="fx-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum assumenda
+      aliquam saepe sequi maiores quas fuga esse reiciendis. Voluptate excepturi
+      repellendus laudantium corporis quod vitae ut quibusdam voluptas quis
+      sequi?
+    </p>
+  </div>
+  <div class="meta">
+    <div class="icons">
+      <img src="assets/icons/like.svg" alt="like" width="18" />
+      <img src="assets/icons/haha.svg" alt="haha" width="18" />
+      <img src="assets/icons/huhu.svg" alt="huhu" width="18" />
+    </div>
+    <div class="names">Traxex, Bloodseeker and 13 others</div>
+    <div class="reactions-count">15</div>
+    <span class="fx-spacer"></span>
+    <div class="comments-count">3 Comments</div>
+  </div>
+  <div class="actions">
+    <div matRipple class="like">
+      <mat-icon>thumb_up_off_alt</mat-icon>
+      <span>Like</span>
+    </div>
+    <div matRipple class="comment">
+      <mat-icon>chat_bubble_outline</mat-icon>
+      <span>Comment</span>
+    </div>
+    <div matRipple class="share">
+      <mat-icon>send</mat-icon>
+      <span>Share</span>
+    </div>
+  </div>
+</mat-card>
