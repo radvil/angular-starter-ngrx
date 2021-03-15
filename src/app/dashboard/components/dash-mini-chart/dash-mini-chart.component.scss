@@ -1,10 +1,10 @@
 rad-card {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   padding: 0;
 }
-.share {
-  display: none;
-}
+// .share {
+//   display: none;
+// }
 .card-header {
   display: flex;
   align-items: center;
@@ -22,16 +22,3 @@ rad-card {
   }
 }
 
-@media (min-width: 777px) {
-  rad-card:hover {
-    .share {
-      display: block;
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      background-color: inherit;
-      border-radius: 50%;
-      box-shadow: 1px 1px 9px 1px rgb(0 0 0 / 20%);
-    }
-  }
-}

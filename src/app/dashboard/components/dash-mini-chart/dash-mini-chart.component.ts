@@ -1,18 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
-  ApexXAxis,
+  ApexFill,
   ApexTheme,
-  ApexLegend,
   ChartComponent,
-  ApexDataLabels,
-  ApexYAxis,
-  ApexGrid
 } from 'ng-apexcharts';
 
 @Component({
@@ -21,23 +13,22 @@ import {
   styleUrls: ['./dash-mini-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashMiniChartComponent {
-  @ViewChild('chart') chart!: ChartComponent;
-
+export class DashMiniChartComponent implements OnInit {
+  @Input('title') title!: string;
+  @Input('subtitle') subtitle!: string;
+  @Input('chartColor') themeColor = "#5C77FF";
+  @Input('chartTheme') themeMode!: 'light' | 'dark';
+  @Input('series') series!: ApexAxisChartSeries;
   public chartOptions!: {
-    series: ApexAxisChartSeries;
     chart: ApexChart;
     theme: ApexTheme;
+    fill: ApexFill;
   };
 
-  constructor() {
+  @ViewChild('chart') chart!: ChartComponent;
+
+  ngOnInit() {
     this.chartOptions = {
-      series: [
-        {
-          name: 'Page Views',
-          data: [53, 22, 50, 33, 63, 54, 25],
-        },
-      ],
       chart: {
         toolbar: {
           show: false,
@@ -45,13 +36,19 @@ export class DashMiniChartComponent {
         height: 100,
         type: 'area',
         sparkline: {
-          enabled: true
-        }
+          enabled: true,
+        },
       },
       theme: {
-        mode: 'light',
-        palette: 'palette6',
+        mode: this.themeMode,
       },
+      fill: {
+        colors: [this.themeColor],
+        opacity: 0.9,
+        gradient: {
+          gradientToColors: ['white'],
+      },
+      }
     };
   }
 }

@@ -1,13 +1,13 @@
 <rad-card>
-  <div class="share">
+  <div radFloatHover class="share">
     <button mat-icon-button>
       <mat-icon>share</mat-icon>
     </button>
   </div>
   <div class="card-header">
     <div class="text">
-      <h1>18.2k</h1>
-      <p>Page Views</p>
+      <h1>{{ title }}</h1>
+      <p>{{ subtitle }}</p>
     </div>
     <span class="fx-spacer"></span>
     <button mat-icon-button>
@@ -15,8 +15,10 @@
     </button>
   </div>
   <apx-chart
-    [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [theme]="chartOptions.theme"
+    [series]="series!"
+    [chart]="chartOptions.chart!"
+    [theme]="chartOptions.theme!"
+    [fill]="chartOptions.fill"
+    [colors]="[themeColor]"
   ></apx-chart>
 </rad-card>

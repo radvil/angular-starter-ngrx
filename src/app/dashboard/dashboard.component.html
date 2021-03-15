@@ -1,3 +1,31 @@
-<dash-intro></dash-intro>
-<dash-mini-chart></dash-mini-chart>
-<user-chart></user-chart>
+<div class="grid-container">
+  <section class="intro">
+    <dash-intro></dash-intro>
+  </section>
+  <section class="mini-chart">
+    <dash-mini-chart
+      [title]="pageViewsChartConfig.title!"
+      [subtitle]="pageViewsChartConfig.subtitle!"
+      [chartTheme]="pageViewsChartConfig.chartTheme!"
+      [series]="pageViewsChartConfig.series!"
+    ></dash-mini-chart>
+  </section>
+  <section class="mini-chart">
+    <dash-mini-chart
+      [title]="uniqueUsersChartConfig.title!"
+      [subtitle]="uniqueUsersChartConfig.subtitle!"
+      [chartTheme]="uniqueUsersChartConfig.chartTheme!"
+      chartColor="deeppink"
+      [series]="uniqueUsersChartConfig.series!"
+    ></dash-mini-chart>
+  </section>
+  <section class="user-sessions">
+    <user-chart></user-chart>
+  </section>
+
+  <section class="recent-sales">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
+    consequuntur officiis aut voluptate enim alias quasi possimus quae incidunt,
+    at ducimus vel ipsa natus ut a id. Earum, natus dolor.
+  </section>
+</div>

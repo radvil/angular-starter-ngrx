@@ -29,12 +29,16 @@ ul {
   .intro {
     display: flex;
     align-items: center;
+    margin-bottom: unset;
     & > * {
       flex: 1;
     }
     img {
       object-fit: unset;
       object-position: unset;
+    }
+    .text {
+      margin-top: unset;
     }
   }
 }
