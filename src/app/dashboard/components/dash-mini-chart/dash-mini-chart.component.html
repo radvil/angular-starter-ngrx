@@ -1,0 +1,22 @@
+<mat-card>
+  <div class="share">
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </div>
+  <div class="card-header">
+    <div class="text">
+      <h1>18.2k</h1>
+      <p>Page Views</p>
+    </div>
+    <span class="fx-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>code</mat-icon>
+    </button>
+  </div>
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [theme]="chartOptions.theme"
+  ></apx-chart>
+</mat-card>

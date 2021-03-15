@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
@@ -21,12 +21,13 @@ export class TopbarComponent implements OnInit, OnDestroy {
   public currentTheme!: Theme;
   private _destroy$ = new Subject();
   @Output('toggleSideBar') clickMenu = new EventEmitter();
+  @ViewChild('topMenu', {static:true}) topMenu!: ElementRef<HTMLButtonElement>;
 
   constructor(
     private _route: ActivatedRoute,
     private _bpService: BreakPointService,
     private _store: Store<AppState>,
-    public bottomSheet: MatBottomSheet
+    public bottomSheet: MatBottomSheet,
   ) { }
 
   get toolbarColor(): string {

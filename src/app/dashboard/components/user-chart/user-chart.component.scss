@@ -1,0 +1,20 @@
+mat-card.chart {
+  padding: 0;
+}
+h2 {
+  margin: 0;
+}
+.card-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+.card-header-action {
+  display: none;
+}
+
+@media(min-width: 777px) {
+  .card-header-action {
+    display: flex;
+  }
+}

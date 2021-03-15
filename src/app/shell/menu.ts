@@ -5,6 +5,7 @@ export interface MenuItem {
 }
 
 export const menuList: MenuItem[] = [
+	{ link: '/dashboard', label: 'Dashboard', iconName: 'dashboard' },
 	{ link: '/add-company', label: 'New company', iconName: 'add' },
 	{ link: '/company-list', label: 'Company list', iconName: 'business' },
 	{ link: '/tables', label: 'Tables', iconName: 'toc' },

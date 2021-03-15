@@ -68,8 +68,7 @@ const routes: Routes = [
     MatSelectModule,
     MatDividerModule,
     MatRippleModule,
-
     RowItemModule,
   ],
 })
-export class SocialModule {}
+export class SocialModule { }
