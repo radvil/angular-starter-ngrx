@@ -1,4 +1,4 @@
-mat-card {
+rad-card {
   margin-bottom: 1rem;
   padding: 0;
 }
@@ -23,7 +23,7 @@ mat-card {
 }
 
 @media (min-width: 777px) {
-  mat-card:hover {
+  rad-card:hover {
     .share {
       display: block;
       position: absolute;

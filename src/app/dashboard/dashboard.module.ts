@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
+import { RadCardModule } from '../_shared/components';
 import { DashboardComponent } from './dashboard.component';
 import { UserChartComponent, DashIntroComponent, DashMiniChartComponent } from './components';
 
@@ -25,6 +26,7 @@ import { UserChartComponent, DashIntroComponent, DashMiniChartComponent } from '
     MatButtonModule,
     MatIconModule,
     NgApexchartsModule,
+    RadCardModule
   ]
 })
 export class DashboardModule { }

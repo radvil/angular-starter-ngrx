@@ -37,8 +37,16 @@ table {
   .mat-drawer-backdrop.mat-drawer-shown {
     background-color: #6666;
   }
-
+  .rad-card {
+    background-color: #181818 !important;
+  }
   foreignObject {
     background-color: #181818 !important;
+  }
+}
+
+.rad-blue-theme {
+  .rad-card {
+    background-color: white;
   }
 }
