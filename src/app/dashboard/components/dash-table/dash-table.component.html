@@ -1,0 +1,62 @@
+<rad-card>
+  <!-- cardHeader -->
+  <div class="card-header">
+    <h2>Recent Sales</h2>
+    <span class="fx-spacer"></span>
+    <div class="card-header-action">
+      <button mat-icon-button>
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- dataTable -->
+  <div class="table-container">
+    <table mat-table matSort [dataSource]="salesDataSource">
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <th class="pc" mat-header-cell mat-sort-header *matHeaderCellDef>
+          <mat-icon>bubble_chart</mat-icon>
+        </th>
+        <td class="pc" mat-cell *matCellDef="let row">
+          <mat-icon
+            [matTooltip]="row.status"
+            matTooltipPosition="left"
+            [style.color]="getStatusColor(row.status)"
+          >
+            {{ getStatusIcon(row.status) }}
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- product -->
+      <ng-container matColumnDef="product">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>PRODUCT</th>
+        <td mat-cell *matCellDef="let row">{{ row.product }}</td>
+      </ng-container>
+
+      <!-- price -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>$ PRICE</th>
+        <td mat-cell *matCellDef="let row"><b>$ {{ row.price }}</b></td>
+      </ng-container>
+
+      <!-- date -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>DATE</th>
+        <td mat-cell *matCellDef="let row">{{ row.date | relativeTime }}</td>
+      </ng-container>
+
+      <!-- displayedColumns -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [hidePageSize]="true"
+      [pageSizeOptions]="[5, 10, 50]"
+    ></mat-paginator>
+  </div>
+</rad-card>

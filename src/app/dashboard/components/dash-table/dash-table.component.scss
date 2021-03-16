@@ -1,6 +1,7 @@
-rad-card.chart {
+rad-card {
   padding: 0;
 }
+// card header
 h2 {
   margin: 0;
 }
@@ -9,9 +10,18 @@ h2 {
   display: flex;
   align-items: center;
 }
-// .card-header-action {
-//   display: none;
-// }
+
+// table
+.table-container {
+  overflow-x: auto;
+  table[mat-table] {
+    min-width: 600px;
+    width: 100%;
+    th {
+      font-weight: bold;
+    }
+  }
+}
 
 @media(min-width: 777px) {
   .card-header-action {

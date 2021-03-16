@@ -20,8 +20,8 @@ export class RadCardDirective implements AfterViewInit {
     const style = <any>{
       display: 'none',
       position: 'absolute',
-      top: '-1rem',
-      right: '-1rem',
+      top: '-15px',
+      right: 0,
       'background-color': 'inherit',
       'border-radius': '50%',
       'box-shadow': '1px 1px 9px 1px rgb(0 0 0 / 20%)',

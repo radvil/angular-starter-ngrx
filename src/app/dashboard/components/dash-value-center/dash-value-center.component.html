@@ -1,0 +1,20 @@
+<rad-card>
+  <div radFloatHover class="share">
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </div>
+
+  <button [class]="themeColor" mat-icon-button>
+    <mat-icon>{{ icons[0] }}</mat-icon>
+  </button>
+
+  <h1>{{ title }}</h1>
+
+  <div class="subtitle">{{ subtitle }}</div>
+
+  <div [class]="'percentage ' + themeColor">
+    <mat-icon>{{ icons[1] }}</mat-icon>
+    <span>{{ footerText }}</span>
+  </div>
+</rad-card>

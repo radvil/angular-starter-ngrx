@@ -2,6 +2,7 @@
   <section class="intro">
     <dash-intro></dash-intro>
   </section>
+
   <section class="mini-chart">
     <dash-mini-chart
       [title]="pageViewsChartConfig.title!"
@@ -10,7 +11,8 @@
       [series]="pageViewsChartConfig.series!"
     ></dash-mini-chart>
   </section>
-  <section class="mini-chart">
+
+  <section>
     <dash-mini-chart
       [title]="uniqueUsersChartConfig.title!"
       [subtitle]="uniqueUsersChartConfig.subtitle!"
@@ -19,13 +21,60 @@
       [series]="uniqueUsersChartConfig.series!"
     ></dash-mini-chart>
   </section>
+
   <section class="user-sessions">
     <user-chart></user-chart>
   </section>
 
   <section class="recent-sales">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
-    consequuntur officiis aut voluptate enim alias quasi possimus quae incidunt,
-    at ducimus vel ipsa natus ut a id. Earum, natus dolor.
+    <dash-table></dash-table>
+  </section>
+
+  <section>
+    <dash-value-center
+      title="67.4k"
+      subtitle="Users"
+      color="blue"
+      footerText="120.9%"
+      [icons]="['people', 'keyboard_arrow_up']"
+    ></dash-value-center>
+  </section>
+
+  <section>
+    <dash-value-center
+      title="96.2k"
+      subtitle="Session"
+      color="red"
+      footerText="-13%"
+      [icons]="['trending_up', 'keyboard_arrow_down']"
+    ></dash-value-center>
+  </section>
+
+  <section>
+    <dash-value-center
+      title="9.2%"
+      subtitle="Bounce Rate"
+      color="orange"
+      footerText="42%"
+      [icons]="['people', 'keyboard_arrow_up']"
+    ></dash-value-center>
+  </section>
+
+  <section>
+    <dash-value-center
+      title="18m 36s"
+      subtitle="Session Duration"
+      color="green"
+      footerText="27%"
+      [icons]="['av_timer', 'keyboard_arrow_up']"
+    ></dash-value-center>
+  </section>
+
+  <section class="overview">
+    <dash-overview
+      [chartThemeMode]="chartThemeMode"
+      [series]="overviewSeries"
+      [xAxis]="overviewXAxis"
+    ></dash-overview>
   </section>
 </div>

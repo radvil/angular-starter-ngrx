@@ -1,0 +1,50 @@
+<rad-card>
+  <div class="card-header">
+    <h2>Sales Overview</h2>
+    <span class="fx-spacer"></span>
+    <div class="card-header-action">
+      <button mat-icon-button>
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="card-content">
+    <!-- detailRow -->
+    <div class="row overview">
+      <h1>4,692</h1>
+      <h2>Sales this month</h2>
+      <div class="status">
+        <mat-icon class="green">keyboard_arrow_up</mat-icon>
+        <p>
+          <span class="green">11% more sales </span>
+          in comparison to last month
+        </p>
+      </div>
+      <div class="status">
+        <mat-icon class="red">keyboard_arrow_down</mat-icon>
+        <p>
+          <span class="red">11% more sales </span>
+          in comparison to last month
+        </p>
+      </div>
+      <span class="fx-spacer"></span>
+      <button mat-flat-button color="primary">View Details</button>
+    </div>
+
+    <!-- tableRow -->
+    <div class="row">
+      <apx-chart
+        [series]="chartOptions.series!"
+        [xaxis]="chartOptions.xAxis!"
+        [chart]="chartOptions.chart!"
+        [theme]="chartOptions.theme!"
+        [grid]="chartOptions.grid!"
+        [dataLabels]="chartOptions.dataLabels!"
+        [fill]="chartOptions.fill!"
+      ></apx-chart>
+    </div>
+  </div>
+</rad-card>

@@ -1,0 +1,44 @@
+rad-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 2rem;
+  h1 {
+    margin: 1rem 0;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .subtitle {
+    color: #a7a7a7;
+    font-weight: bold;
+  }
+  .percentage {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: .5rem 1rem;
+    border-radius: .5rem 1rem;
+  }
+}
+
+.default {
+  background-color: #9696962b;
+  color: #969696;
+}
+.green {
+  background-color: #55ff882b;
+  color: #44ee9f;
+}
+.blue {
+  background-color: #5577ff2b;
+  color: #5577ff;
+}
+.orange {
+  background-color: #ffbb552b;
+  color: #ffb555;
+}
+.red {
+  background-color: #ff55552b;
+  color: #ff5555;
+}

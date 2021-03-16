@@ -1,0 +1,72 @@
+rad-card {
+  padding: 0;
+}
+// card header
+.card-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  h2 {
+    margin: 0;
+  }
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  h1,
+  h2 {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+.row.overview {
+  padding: 1rem;
+  [mat-flat-button] {
+    height: 50px;
+  }
+}
+.status {
+  display: flex;
+  line-height: 1.5rem;
+  span {
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+  }
+  mat-icon {
+    margin-right: 0.5rem;
+    border-radius: 50%;
+  }
+}
+// colors
+.green {
+  background-color: #55ff882b;
+  color: #44ee9f;
+}
+.red {
+  background-color: #ff55552b;
+  color: #ff5555;
+}
+
+@media (min-width: 777px) {
+  .card-content {
+    display: flex;
+    flex-direction: row;
+
+    & > * { // .row
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row.overview {
+      padding: 2rem;
+    }
+  }
+}
