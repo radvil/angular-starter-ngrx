@@ -80,6 +80,21 @@ body {
 .fx-spacer {
   flex: 1 0 auto;
 }
+.df {
+  display: flex;
+  &.fdc {
+    flex-direction: column;
+  }
+  &.aic {
+    align-items: center;
+  }
+  &.jcc {
+    justify-content: center;
+  }
+}
+.m0 {
+  margin: 0 !important;
+}
 .rad-dialog-overlay {
   max-width: 90vw !important;
 

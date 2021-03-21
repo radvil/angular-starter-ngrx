@@ -1,0 +1,30 @@
+.container {
+  // background-image: url("../../../assets/images/chatting.svg");
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position-x: right;
+  // background-position-y: bottom;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  [mat-fab] {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+  [mat-raised-button] {
+    padding: 1rem 2rem;
+  }
+}
+// @media(min-width: 777px) {
+//   img {
+//     width: 50%;
+//   }
+//   h1 {
+//     font-size: 3rem;
+//     line-height: 3rem;
+//   }
+// }

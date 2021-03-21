@@ -10,6 +10,7 @@ export const menuList: MenuItem[] = [
 	{ link: '/company-list', label: 'Company list', iconName: 'business' },
 	{ link: '/tables', label: 'Tables', iconName: 'toc' },
 	{ link: '/social', label: 'Social', iconName: 'account_circle' },
+	{ link: '/chat', label: 'Chat Room', iconName: 'chat' },
 	{ link: '/about', label: 'About' },
 	{ link: '/settings', label: 'Settings' }
 ];

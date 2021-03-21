@@ -10,7 +10,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
-import { RadTimeModule } from '../_shared/pipes';
+import { RadCommonModule } from '../_shared/pipes';
 import { RadCardModule } from '../_shared/components';
 import { DashboardComponent } from './dashboard.component';
 import {
@@ -50,7 +50,7 @@ import {
     MatTooltipModule,
     NgApexchartsModule,
     RadCardModule,
-    RadTimeModule,
+    RadCommonModule,
   ],
 })
 export class DashboardModule {}
