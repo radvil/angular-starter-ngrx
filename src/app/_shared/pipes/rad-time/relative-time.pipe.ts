@@ -1,13 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-export enum TimeTextStyle {
-  SHORT = 'short',
-  LONG = 'long',
-}
 
 @Pipe({ name: 'relativeTime' })
 export class RelativeTimePipe implements PipeTransform {
-  transform(isoDate: string, style = TimeTextStyle.LONG) {
+  transform(isoDate: string, style: "short" | "long" = "long") {
     const timeStamp = new Date(isoDate);
     const now = new Date();
     const secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
@@ -25,47 +21,47 @@ export class RelativeTimePipe implements PipeTransform {
     const tenYears = 311040000; // oneYear * 10
 
     if (secondsPast < oneMinute) {
-      const postfix = style === TimeTextStyle.SHORT ? 's' : ' seconds ago';
+      const postfix = style === "short" ? 'sec' : ' seconds ago';
       return this.makeString(secondsPast) + postfix;
     }
     if (secondsPast < oneHour) {
-      const postfix = style === TimeTextStyle.SHORT ? 'm' : ' minutes ago';
+      const postfix = style === "short" ? 'min' : ' minutes ago';
       return this.makeString(secondsPast / oneMinute) + postfix;
     }
     if (secondsPast < oneDay) {
-      const postfix = style === TimeTextStyle.SHORT ? 'h' : ' hours ago';
+      const postfix = style === "short" ? 'hour' : ' hours ago';
       return this.makeString(secondsPast / oneHour) + postfix;
     }
     if (secondsPast <= twoDays) {
-      const text = style === TimeTextStyle.SHORT ? '1d' : 'Yesterday';
+      const text = style === "short" ? '1d' : 'Yesterday';
       return text;
     }
     if (secondsPast < oneWeek) {
-      const postfix = style === TimeTextStyle.SHORT ? 'd' : ' days ago';
+      const postfix = style === "short" ? 'd' : ' days ago';
       return this.makeString(secondsPast / oneDay) + postfix;
     }
     if (secondsPast < twoWeeks) {
-      const text = style === TimeTextStyle.SHORT ? '1w' : 'A week ago';
+      const text = style === "short" ? '1w' : 'A week ago';
       return text;
     }
     if (secondsPast < oneMonth) {
-      const postfix = style === TimeTextStyle.SHORT ? 'w' : ' weeks ago';
+      const postfix = style === "short" ? 'w' : ' weeks ago';
       return this.makeString(secondsPast / oneWeek) + postfix;
     }
     if (secondsPast < twoMonths) {
-      const text = style === TimeTextStyle.SHORT ? '1 month' : 'A month ago';
+      const text = style === "short" ? '1 month' : 'A month ago';
       return text;
     }
     if (secondsPast < oneYear) {
-      const postfix = style === TimeTextStyle.SHORT ? ' months' : ' months ago';
+      const postfix = style === "short" ? ' months' : ' months ago';
       return this.makeString(secondsPast / oneMonth) + postfix;
     }
     if (secondsPast < twoYears) {
-      const text = style === TimeTextStyle.SHORT ? 'y' : 'A year ago';
+      const text = style === "short" ? 'y' : 'A year ago';
       return text;
     }
     if (secondsPast < tenYears) {
-      const postfix = style === TimeTextStyle.SHORT ? ' y' : ' years ago';
+      const postfix = style === "short" ? ' y' : ' years ago';
       return this.makeString(secondsPast / oneMonth) + postfix;
     }
     if (secondsPast > tenYears) {
@@ -73,9 +69,10 @@ export class RelativeTimePipe implements PipeTransform {
       const month = (timeStamp.toDateString() as any)
         .match(/ [a-zA-Z]*/)[0]
         .replace(' ', '');
-      const year = timeStamp.getFullYear() === now.getFullYear()
-        ? ''
-        : ' ' + timeStamp.getFullYear();
+      const year =
+        timeStamp.getFullYear() === now.getFullYear()
+          ? ''
+          : ' ' + timeStamp.getFullYear();
       return day + ' ' + month + year;
     }
     return isoDate;

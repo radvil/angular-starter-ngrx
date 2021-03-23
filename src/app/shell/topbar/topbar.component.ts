@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
-import { BreakPointService } from 'src/app/_core/services';
+import { BreakPointService } from 'src/app/_shared/services';
 import { $_theme, ChangeTheme, Theme } from 'src/app/_core/settings';
 import { AppState } from 'src/app/_core/state';
 import { ThemesDialogComponent } from 'src/app/_shared/components';
@@ -31,7 +31,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
   ) { }
 
   get toolbarColor(): string {
-    return this.currentTheme === Theme.BLUE_THEME ? "primary" : "";
+    return this.currentTheme === Theme.BLUE_THEME ? "primary" : "primary";
   }
 
   ngOnInit(): void {

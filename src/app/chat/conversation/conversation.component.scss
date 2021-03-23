@@ -1,0 +1,48 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  // background-color: transparent;
+  border-bottom: 1px solid #3333;
+  & > * {
+    margin-right: 0.5rem;
+    &:last-child {
+      margin-right: unset;
+    }
+  }
+  h3 {
+    margin: 0;
+  }
+  img {
+    border-radius: 50%;
+  }
+}
+
+.messages--content {
+  overflow: hidden;
+
+  .messages--scroll-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 225px);
+    backdrop-filter: blur(10px);
+  }
+}
+.messages--list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem;
+
+  .messages--list-item {
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    width: fit-content;
+    border: 1px solid #ccc;
+
+    &.self {
+      background-color: #5C77FF;
+      color: white;
+    }
+  }
+}

@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ChatService, IConversation } from '../_shared/mocks';
 import { DrawerService } from './drawer.service';
@@ -16,13 +17,18 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private _drawerService: DrawerService,
-    private _chatService: ChatService
+    private _chatService: ChatService,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
     this._drawerService.setDrawer(this.drawer);
     this.conversations$ = this._chatService.getConversations();
     this.isLoading$ = this._chatService.isLoading$;
+  }
+
+  goToConversation(conv: IConversation) {
+    this._router.navigate(['chat', conv.id]);
   }
 
 }

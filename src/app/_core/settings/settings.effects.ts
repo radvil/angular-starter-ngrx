@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { merge, of } from 'rxjs';
 
-import { LocalStorageService } from '../services';
+import { LocalStorageService } from '../../_shared/services';
 import { AppState } from '../state';
 import * as act from './settings.actions';
 import { $_effectiveTheme, $_settings } from './settings.selectors';

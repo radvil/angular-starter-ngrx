@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { BreakPointService } from 'src/app/_core/services';
+import { BreakPointService } from 'src/app/_shared/services';
 import { menuList } from '../menu';
 
 @Component({

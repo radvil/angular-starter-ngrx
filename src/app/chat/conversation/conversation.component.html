@@ -1,0 +1,32 @@
+<div class="toolbar rad-bg">
+  <button mat-icon-button (click)="toggleDrawer()">
+    <!-- <mat-icon>keyboard_backspace</mat-icon> -->
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="assets/images/portraits/1.png" alt="photo" width="46" />
+  <h3>My Name is...</h3>
+  <span class="fx-spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>settings</mat-icon>
+  </button>
+</div>
+
+<div class="messages--content">
+  <div class="messages--scroll-container">
+    <ul *ngIf="messages$ | async as messages" class="messages--list">
+      <li
+        *ngFor="let chat of messages"
+        class="messages--list-item"
+        [class.self]="isSelf(chat.receiverId)"
+      >
+        {{ chat.message }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="messages-box" style="display: flex; align-items: center; background-color: white; position: absolute; bottom: 0; left: 0; width: calc(100% - 2rem); padding: 0 1rem;">
+    <mat-icon style="margin-right: 1rem;">account_circle</mat-icon>
+    <input type="text" class="fx-spacer" style="box-sizing: border-box; border: none; outline: none; height: 50px;">
+    <mat-icon style="margin-left: 1rem;">send</mat-icon>
+  </div>
+</div>

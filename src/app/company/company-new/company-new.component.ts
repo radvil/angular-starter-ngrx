@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { CompanyService } from '../services/company.service';
 import { pastDateValidator } from 'src/app/_shared/utils';
-import { NotificationService } from 'src/app/_core/services';
+import { NotificationService } from 'src/app/_shared/services';
 
 @Component({
   selector: 'app-company-new',

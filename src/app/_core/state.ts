@@ -7,8 +7,8 @@ import {
   MetaReducer,
   UPDATE,
 } from '@ngrx/store';
-import { LocalStorageService } from './services';
-import { RouterStateUrl } from './services/router-serializer';
+import { LocalStorageService } from '../_shared/services';
+import { RouterStateUrl } from '../_shared/services/router-serializer';
 import { SettingsState } from './settings/settings.model';
 import { settingsReducer } from './settings/settings.reducer';
 

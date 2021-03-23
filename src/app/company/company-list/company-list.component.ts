@@ -23,7 +23,7 @@ import {
 import { ICompany } from '../interfaces/company';
 import { CompanyService } from '../services/company.service';
 import { ConfirmDialogComponent } from 'src/app/_shared/components';
-import { NotificationService } from 'src/app/_core/services';
+import { NotificationService } from 'src/app/_shared/services';
 
 @Component({
   selector: 'app-company-list',

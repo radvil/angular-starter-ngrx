@@ -6,9 +6,13 @@
 @import './black.theme.scss';
 
 @import "./app.theme.scss";
+@import "../../app/_shared/services/notification/notification.theme.scss";
+@import "../../app/chat/conversation/conversation.theme.scss";
 
 @mixin rad-components-theme($theme) {
 	@include rad-app-theme($theme);
+  @include notification-theme($theme);
+  @include conversation-theme($theme);
 }
 
 .rad-blue-theme {

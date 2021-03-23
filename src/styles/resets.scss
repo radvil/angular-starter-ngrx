@@ -40,6 +40,12 @@ table {
   .rad-card {
     background-color: #181818 !important;
   }
+  .rad-bg {
+    background-color: #222 !important;
+  }
+  .messages--list-item {
+    background-color: #333;
+  }
   foreignObject, apx-chart svg {
     background-color: #181818 !important;
   }
@@ -48,5 +54,11 @@ table {
 .rad-blue-theme {
   .rad-card {
     background-color: white;
+  }
+  .rad-bg {
+    background-color: #fff;
+  }
+  .messages--list-item {
+    background-color: #e8e8e8;
   }
 }

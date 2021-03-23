@@ -9,7 +9,7 @@ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router
 
 import { environment } from 'src/environments/environment';
 import { metaReducers, reducer } from './state';
-import { RouterStateService } from './services/router-serializer';
+import { RouterStateService } from '../_shared/services/router-serializer';
 import { SettingsEffects } from './settings/settings.effects';
 
 const PROVIDERS = [

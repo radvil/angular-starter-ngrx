@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
-import { BreakPointService } from '../_core/services';
+import { BreakPointService } from '../_shared/services';
 import { $_theme, Theme } from '../_core/settings';
 import { AppState } from '../_core/state';
 import { menuList } from './menu';

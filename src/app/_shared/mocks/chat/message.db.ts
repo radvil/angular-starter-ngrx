@@ -403,7 +403,7 @@ export const messages: Array<IMessage> = [
     senderId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     receiverId: '5d614b53-8e42-447c-9068-69f24626dd07',
     message:
-      'platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum',
+      'platea dictumst morbi',
     hasSeen: false,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -413,7 +413,7 @@ export const messages: Array<IMessage> = [
     senderId: '5d614b53-8e42-447c-9068-69f24626dd07',
     receiverId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     message:
-      'nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in',
+      'nisl duis bibendum felis ',
     hasSeen: false,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -423,7 +423,7 @@ export const messages: Array<IMessage> = [
     senderId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     receiverId: '5d614b53-8e42-447c-9068-69f24626dd07',
     message:
-      'dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus',
+      'dui pharetra magna ac consequat metus',
     hasSeen: false,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -443,7 +443,7 @@ export const messages: Array<IMessage> = [
     senderId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     receiverId: '5d614b53-8e42-447c-9068-69f24626dd07',
     message:
-      'quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla',
+      'quam a odio in hac habitasse platea dictumst',
     hasSeen: false,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -462,7 +462,7 @@ export const messages: Array<IMessage> = [
     conversationId: 'ba19ddda-894e-4fa4-a076-12a713ad830a',
     senderId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     receiverId: '5d614b53-8e42-447c-9068-69f24626dd07',
-    message: 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci',
+    message: 'ultrices vel augue faucibus orci',
     hasSeen: true,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -482,7 +482,7 @@ export const messages: Array<IMessage> = [
     senderId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     receiverId: '5d614b53-8e42-447c-9068-69f24626dd07',
     message:
-      'feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut',
+      'feugiat non pretium quis',
     hasSeen: true,
     createdAt: '2021-03-21T14:39:15.705Z',
   },
@@ -492,7 +492,7 @@ export const messages: Array<IMessage> = [
     senderId: '5d614b53-8e42-447c-9068-69f24626dd07',
     receiverId: '0afbb08e-3be3-4041-a075-72ba141cbd41',
     message:
-      'sed augue aliquam erat volutpat in congue etiam justo etiam pretium',
+      'sed augue aliquam',
     hasSeen: true,
     createdAt: '2021-03-21T14:39:15.705Z',
   },

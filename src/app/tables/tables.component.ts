@@ -10,7 +10,6 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fromEvent, Subject } from 'rxjs';
@@ -21,7 +20,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators';
-import { BreakPointService } from '../_core/services';
+import { BreakPointService, NotificationService } from '../_shared/services';
 
 import {
   ConfirmDialogComponent,
@@ -62,7 +61,7 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
     private _customerService: CustomerService,
     private _dialog: MatDialog,
     private _bpService: BreakPointService,
-    private _snackBar: MatSnackBar
+    private _notification: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -262,7 +261,7 @@ export class TablesComponent implements OnInit, AfterViewInit, OnDestroy {
       );
 
     dialogBeforeClosed$.subscribe(() => {
-      this._snackBar.open('Success', 'close', { duration: 3000 });
+      this._notification.success('Yooo');
     });
   }
 

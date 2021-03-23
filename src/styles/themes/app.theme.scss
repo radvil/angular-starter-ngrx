@@ -1,10 +1,6 @@
 // GLOBAL APPLY
 @import ".~@angular/material/theming";
 
-$warning-color: #ffe600;
-$success-color: #0bce56;
-$info-color: #0bb1ce;
-
 @mixin rad-app-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
@@ -33,25 +29,5 @@ $info-color: #0bb1ce;
         color: mat-color($accent, darker);
       }
     }
-  }
-
-  .error-notification-overlay {
-    color: black;
-    background-color: mat-color($warn);
-  }
-
-  .info-notification-overlay {
-    color: black;
-    background-color: $info-color;
-  }
-
-  .success-notification-overlay {
-    color: black;
-    background-color: $success-color;
-  }
-
-  .warning-notification-overlay {
-    color: black;
-    background-color: $warning-color;
   }
 }
