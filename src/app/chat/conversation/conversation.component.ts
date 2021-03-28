@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ActivatedRoute } from '@angular/router';
@@ -17,12 +22,12 @@ import {
   DeleteMessage,
   GetConversationById,
   GetMessagesByConversation,
-  NewMessage,
+  NewMessage
 } from '../store/chat.actions';
 import {
   $ConversationById,
   $MessagesByConversation,
-  $MessagesIsLoading,
+  $MessagesIsLoading
 } from '../store/chat.selectors';
 
 @Component({
@@ -46,7 +51,7 @@ export class ConversationComponent implements OnInit, OnDestroy {
     private _drawerService: DrawerService,
     private _store: Store<AppState | ChatState>,
     private _dialog: MatDialog,
-    private _notification: NotificationService
+    private _notification: NotificationService,
   ) {}
 
   ngOnInit(): void {
@@ -86,7 +91,6 @@ export class ConversationComponent implements OnInit, OnDestroy {
       this._store.dispatch(ClearMessages({ conversationId: this._convId }));
       this._notification.success('Chats has been cleared!');
     });
-
   }
 
   onContextMenu(event: MouseEvent, item: IMessage) {

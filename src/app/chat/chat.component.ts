@@ -34,8 +34,8 @@ export class ChatComponent implements OnInit, AfterViewInit, OnDestroy {
     private _drawerService: DrawerService,
     private _store: Store<ChatState>,
     private _router: Router,
-    private _bpService: BreakPointService
-  ) {}
+    private _bpService: BreakPointService,
+  ) { }
 
   ngOnInit(): void {
     this._store.dispatch(GetConversations());

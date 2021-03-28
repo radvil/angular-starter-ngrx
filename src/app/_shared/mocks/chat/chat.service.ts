@@ -32,9 +32,18 @@ export class ChatService {
   }
 
   addNewMessage(dto: MessageDto) {
+    let conversationId = dto.conversationId;
+    if (!conversationId) {
+      conversationId = conversations.find(c => c.from.id === dto.receiverId)?.id!;
+    }
+    
+    /**
+     * This won't work, just do your own implementation;
+     */
     const newMessage: IMessage = {
       id: `${Math.floor(Math.random() * 10e9)}`,
       ...dto,
+      conversationId,
       createdAt: new Date().toISOString(),
       hasSeen: false
     };

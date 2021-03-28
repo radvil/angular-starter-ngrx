@@ -1,0 +1,63 @@
+<div
+  class="search-friend"
+  [style.display]="mode === 'SEARCH' ? 'block' : 'none'"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input
+      #searchInput
+      matInput
+      type="text"
+      placeholder="Search friend"
+      autocomplete="off"
+    />
+  </mat-form-field>
+
+  <mat-dialog-content>
+    <ul class="search-results" *ngIf="filteredUsers$ | async as friends">
+      <li
+        matRipple
+        class="search-result-item"
+        *ngFor="let friend of friends"
+        (click)="openChat(friend)"
+      >
+        <img [src]="friend.photo" [alt]="friend.username" />
+        <span class="name">{{ friend.name }}</span>
+      </li>
+      <li style="text-align: center" *ngIf="searchInput.value !== ''">
+        <b>{{ friends?.length + " user(s) found" }}</b>
+      </li>
+    </ul>
+
+    <div *ngIf="searchInput.value === ''" style="text-align: center">
+      <b>Search friend to start conversation</b>
+    </div>
+  </mat-dialog-content>
+</div>
+
+<div class="conversation-start" *ngIf="mode === 'CHAT' && selectedUser">
+  <div class="header">
+    <button mat-icon-button (click)="mode = 'SEARCH'">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <img [src]="selectedUser.photo" [alt]="selectedUser.username" />
+    <span class="name">{{ selectedUser.name }}</span>
+  </div>
+
+  <form class="content" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>New message</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="message"
+        placeholder="Enter your message"
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">
+      <mat-icon>send</mat-icon>&nbsp;Send
+    </button>
+  </form>
+</div>

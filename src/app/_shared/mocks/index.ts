@@ -17,3 +17,7 @@ export * from './chat/conversation.interface';
 export * from './chat/message.db';
 export * from './chat/conversation.db';
 export * from './chat/chat.service';
+
+export * from './users/user.db';
+export * from './users/user.interface';
+export * from './users/user.service';

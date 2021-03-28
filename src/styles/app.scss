@@ -81,6 +81,15 @@ body {
     }
   }
 }
+.new-chat-panel {
+  .mat-dialog-container {
+    padding: unset;
+  }
+  .mat-dialog-content {
+    margin: unset;
+    padding: unset;
+  }
+}
 .fx-spacer {
   flex: 1 0 auto;
 }

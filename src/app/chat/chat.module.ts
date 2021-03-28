@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -18,13 +18,15 @@ import { ChatEmptyComponent } from './chat-empty/chat-empty.component';
 import { ChatComponent } from './chat.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { ChatStoreModule } from './store/chat-store.module';
+import { NewChatDialogComponent } from './new-chat-dialog/new-chat-dialog.component';
 
 
 @NgModule({
-  declarations: [ChatComponent, ChatEmptyComponent, ConversationComponent],
+  declarations: [ChatComponent, ChatEmptyComponent, ConversationComponent, NewChatDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
