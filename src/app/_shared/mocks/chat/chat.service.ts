@@ -1,54 +1,43 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { delay, map, tap } from 'rxjs/operators';
-import { sortByLatest } from '../../utils/sort-comparer';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { conversations } from './conversation.db';
 import { IConversation } from './conversation.interface';
 import { messages } from './message.db';
-import { IMessage } from './message.interface';
-
-interface State {
-  conversations: IConversation[];
-  chats: IMessage[];
-  isLoading: boolean;
-}
-
-const initalState: State = {
-  conversations: conversations,
-  chats: messages,
-  isLoading: false
-}
+import { IMessage, MessageDto } from './message.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  private readonly _state = new BehaviorSubject<State>(initalState);
-
-  public conversations$ = this.state$.pipe(
-    map(state => {
-      return state.conversations
-        .map((conv) => {
-          const chats = this._state.value.chats;
-          conv.chats = chats.filter(c => c.conversationId === conv.id);
-          return conv;
+  getConversations(): Observable<IConversation[]> {
+    return of(conversations).pipe(
+      map((convs) =>
+        convs.map((c) => {
+          c.chats = messages.filter((m) => m.conversationId === c.id);
+          return c;
         })
-        .sort(sortByLatest);
-    })
-  );
-  public chats$ = this.state$.pipe(map(state => state.chats.sort(sortByLatest)));
-  public isLoading$ = this.state$.pipe(map(state => state.isLoading));
-
-  get state$() {
-    return this._state.asObservable();
+      ),
+    );
   }
 
-  constructor() { }
+  getConversationById(selectedId: string): Observable<IConversation> {
+    const conv = conversations.find(c => c.id === selectedId)!;
+    const chats = messages.filter(m => m.conversationId === selectedId);
+    return of({ ...conv, chats });
+  }
 
-  getConversations(): Observable<IConversation[]> {
-    const currentState = this._state.value;
-    this._state.next({ ...currentState, isLoading: true });
-    return this.conversations$.pipe(
-      delay(500),
-      tap(res => res && this._state.next({ ...currentState, isLoading: false }))
+  getMessagesByConversation(convId: string): Observable<IMessage[]> {
+    return of(messages).pipe(
+      map(messages => messages.filter(m => m.conversationId === convId)),
     );
+  }
+
+  addNewMessage(dto: MessageDto) {
+    const newMessage: IMessage = {
+      id: `${Math.floor(Math.random() * 10e9)}`,
+      ...dto,
+      createdAt: new Date().toISOString(),
+      hasSeen: false
+    };
+    return of(newMessage);
   }
 }

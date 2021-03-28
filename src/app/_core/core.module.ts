@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { metaReducers, reducer } from './state';
 import { RouterStateService } from '../_shared/services/router-serializer';
 import { SettingsEffects } from './settings/settings.effects';
+import { AuthEffects } from './auth/auth.effects';
 
 const PROVIDERS = [
   { provide: RouterStateSerializer, useClass: RouterStateService }
@@ -22,7 +23,7 @@ const PROVIDERS = [
     HttpClientModule,
 
     StoreModule.forRoot(reducer, { metaReducers }),
-    EffectsModule.forRoot([SettingsEffects]),
+    EffectsModule.forRoot([SettingsEffects, AuthEffects]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
       name: 'Rad Dashboard',

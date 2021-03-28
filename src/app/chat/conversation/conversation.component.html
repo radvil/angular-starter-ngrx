@@ -1,32 +1,86 @@
-<div class="toolbar rad-bg">
-  <button mat-icon-button (click)="toggleDrawer()">
-    <!-- <mat-icon>keyboard_backspace</mat-icon> -->
-    <mat-icon>menu</mat-icon>
-  </button>
-  <img src="assets/images/portraits/1.png" alt="photo" width="46" />
-  <h3>My Name is...</h3>
-  <span class="fx-spacer"></span>
-  <button mat-icon-button>
-    <mat-icon>settings</mat-icon>
-  </button>
-</div>
+<ng-container *ngIf="conversation$ | async as conv">
+  <div class="toolbar rad-bg">
+    <button mat-icon-button (click)="toggleDrawer()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img [src]="conv?.from?.photo" alt="photo" width="46" />
+    <h3>{{ conv?.from?.name }}</h3>
+    <span class="fx-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #settingsMenu="matMenu">
+      <ng-template matMenuContent>
+        <button mat-menu-item (click)="clearChat()">
+          <mat-icon color="warn">checked</mat-icon>
+          Clear Chats
+        </button>
+      </ng-template>
+    </mat-menu>
+  </div>
 
-<div class="messages--content">
-  <div class="messages--scroll-container">
-    <ul *ngIf="messages$ | async as messages" class="messages--list">
-      <li
-        *ngFor="let chat of messages"
-        class="messages--list-item"
-        [class.self]="isSelf(chat.receiverId)"
+  <div *ngIf="currentUser$ | async as user" class="messages--content">
+    <div class="messages--scroll-container">
+      <ul *ngIf="messages$ | async as messages" class="messages--list">
+        <li
+          *ngFor="let chat of messages"
+          [class.self]="chat.senderId === user.id"
+        >
+          <img
+            *ngIf="chat.senderId !== user.id"
+            class="sender"
+            [src]="conv?.from?.photo"
+            alt="sender"
+          />
+          <div
+            class="messages--list-item"
+            (contextmenu)="
+              user.id === chat.senderId ? onContextMenu($event, chat) : null
+            "
+          >
+            {{ chat.message }}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="message-box">
+      <img [src]="user.photo" [alt]="user.username" class="portrait" />
+      <div class="fx-spacer form-control">
+        <input
+          [(ngModel)]="newMessage"
+          (keyup)="
+            $event.code === 'Enter' ? sendMessage(user.id, conv.from.id!) : null
+          "
+          matInput
+          type="text"
+          autocomplete="off"
+          placeholder="Enter your message"
+        />
+      </div>
+      <button
+        (click)="sendMessage(user.id, conv.from.id!)"
+        mat-icon-button
+        class="send"
       >
-        {{ chat.message }}
-      </li>
-    </ul>
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
   </div>
+</ng-container>
 
-  <div class="messages-box" style="display: flex; align-items: center; background-color: white; position: absolute; bottom: 0; left: 0; width: calc(100% - 2rem); padding: 0 1rem;">
-    <mat-icon style="margin-right: 1rem;">account_circle</mat-icon>
-    <input type="text" class="fx-spacer" style="box-sizing: border-box; border: none; outline: none; height: 50px;">
-    <mat-icon style="margin-left: 1rem;">send</mat-icon>
-  </div>
-</div>
+<!-- contextMenu -->
+<div
+  style="visibility: hidden; position: fixed"
+  [style.left]="contextMenuPosition.x"
+  [style.top]="contextMenuPosition.y"
+  [matMenuTriggerFor]="contextMenu"
+></div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-item="item">
+    <button mat-menu-item (click)="deleteMessage(item)">
+      <mat-icon color="warn">delete</mat-icon>
+      &nbsp;Delete
+    </button>
+  </ng-template>
+</mat-menu>

@@ -46,8 +46,19 @@ table {
   .messages--list-item {
     background-color: #333;
   }
-  foreignObject, apx-chart svg {
+  foreignObject,
+  apx-chart svg {
     background-color: #181818 !important;
+  }
+  .message-box {
+    background: #222 !important;
+    border-color: #565656 !important;
+    .form-control, input {
+      background-color: #565656 !important;
+      &::placeholder {
+        color: #222;
+      }
+    }
   }
 }
 

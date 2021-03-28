@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  // background-color: transparent;
   border-bottom: 1px solid #3333;
   & > * {
     margin-right: 0.5rem;
@@ -24,25 +23,102 @@
   .messages--scroll-container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: calc(100vh - 225px);
+    height: calc(100vh - 233px); // idk why
     backdrop-filter: blur(10px);
   }
 }
-.messages--list {
+ul.messages--list {
   list-style: none;
   padding: 0;
-  margin: 1rem;
+  margin: 0.5rem;
+
+  li {
+    display: flex;
+
+    &.self {
+      justify-content: flex-end;
+      padding-left: 50px;
+      .messages--list-item {
+        color: white;
+        background-color: #5c77ff;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0.5rem;
+      }
+    }
+  }
+
+  .sender {
+    margin-right: 0.5rem;
+    height: 40px;
+    border-radius: 50%;
+  }
 
   .messages--list-item {
     margin-bottom: 1rem;
-    padding: .5rem 1rem;
-    border-radius: .5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     width: fit-content;
     border: 1px solid #ccc;
+    border-top-left-radius: 0;
+  }
+}
+.message-box {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: -webkit-fill-available;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-top: 1px solid #3333;
+  .portrait {
+    margin-right: 0.5rem;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .form-control {
+    // height: 50px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #ececec;
+    border-radius: 2rem;
+  }
+  input {
+    background-color: #ececec;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .send {
+    margin-left: 0.5rem;
+  }
+}
 
-    &.self {
-      background-color: #5C77FF;
-      color: white;
+@media (min-width: 777px) {
+  ul.messages--list {
+    margin: 1rem;
+    .messages--list-item {
+      font-size: 1rem;
+    }
+    .sender {
+      margin-right: 1rem;
+    }
+  }
+  .message-box {
+    padding: 0.5rem 1rem;
+    .potrait {
+      margin-right: 1rem;
+    }
+    .send {
+      margin-left: 1rem;
+    }
+    .form-control {
+      padding: 1rem;
     }
   }
 }

@@ -1,22 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { RadCardModule } from '../_shared/components';
 import { RadCommonModule } from '../_shared/pipes';
-import { ChatComponent } from './chat.component';
 import { ChatEmptyComponent } from './chat-empty/chat-empty.component';
+import { ChatComponent } from './chat.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { ChatStoreModule } from './store/chat-store.module';
 
 
 @NgModule({
   declarations: [ChatComponent, ChatEmptyComponent, ConversationComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -42,9 +50,14 @@ import { ConversationComponent } from './conversation/conversation.component';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    MatDialogModule,
     MatRippleModule,
     RadCardModule,
     RadCommonModule,
+    ChatStoreModule,
   ],
 })
 export class ChatModule { }

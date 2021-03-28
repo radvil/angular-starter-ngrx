@@ -1,30 +1,41 @@
 <rad-card>
   <mat-drawer-container class="drawer-container">
-    <mat-drawer #drawer mode="over" closed>
+    <mat-drawer #drawer>
       <ul class="chats--list">
         <li class="chats--list-header">
           <h1 class="m0">Chats</h1>
           <span class="fx-spacer"></span>
-          <mat-icon (click)="drawer.close()">close</mat-icon>
+          <mat-icon *ngIf="isHandset" (click)="drawer.close()">close</mat-icon>
         </li>
-        <li
-          *ngFor="let conv of conversations$ | async"
-          matRipple
-          mat-list-item
-          class="chats--list-item"
-          (click)="goToConversation(conv); drawer.close()"
-        >
-          <img [src]="conv.from.photo" [alt]="conv.from.username" width="45" />
-          <div class="fx-spacer df fdc jcc">
-            <h3 class="m0">{{ conv.from.name | truncate: 15 }}</h3>
-            <p *ngIf="conv.chats[0].message" class="m0">
-              {{ conv.chats[0].message | truncate: 18 }}
-            </p>
-          </div>
-          <div *ngIf="conv.updatedAt" class="time">
-            {{ conv.updatedAt.toString() | relativeTime: "short" }}
-          </div>
+
+        <li class="chats--loading" *ngIf="isLoading$ | async">
+          <h3>💬 Loading...</h3>
         </li>
+
+        <ng-container *ngIf="isLoaded$ | async">
+          <li
+            *ngFor="let conv of conversations$ | async"
+            matRipple
+            mat-list-item
+            class="chats--list-item"
+            (click)="goToConversation(conv)"
+          >
+            <img
+              [src]="conv.from.photo"
+              [alt]="conv.from.username"
+              width="45"
+            />
+            <div class="fx-spacer df fdc jcc">
+              <h3 class="m0">{{ conv.from.name | truncate: 15 }}</h3>
+              <p *ngIf="conv.chats && conv.chats[0]" class="m0">
+                {{ conv.chats[0].message | truncate: 18 }}
+              </p>
+            </div>
+            <div *ngIf="conv.updatedAt" class="time">
+              {{ conv.updatedAt.toString() | relativeTime: "short" }}
+            </div>
+          </li>
+        </ng-container>
       </ul>
     </mat-drawer>
     <mat-drawer-content>

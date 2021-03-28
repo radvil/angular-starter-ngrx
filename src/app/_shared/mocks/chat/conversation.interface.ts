@@ -5,7 +5,7 @@ export interface IConversation {
   from: IUserChat;
   createdAt: string | Date;
   updatedAt: string | Date;
-  chats: IMessage[];
+  chats?: IMessage[];
 }
 
 export interface IUserChat {

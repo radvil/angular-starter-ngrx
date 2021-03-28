@@ -7,3 +7,10 @@ export interface IMessage {
   hasSeen: boolean;
   createdAt: string | Date;
 }
+
+export interface MessageDto {
+  conversationId: string,
+  senderId: string,
+  receiverId: string,
+  message: string,
+}
