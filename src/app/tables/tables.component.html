@@ -142,7 +142,7 @@
 
     <!-- address -->
     <ng-container matColumnDef="address">
-      <th mat-header-cell mat-sort-header *matHeaderCellDef>Address</th>
+      <th mat-header-cell *matHeaderCellDef>Address</th>
       <td mat-cell *matCellDef="let row">{{ getCustomerAddress(row) }}</td>
     </ng-container>
 
@@ -172,7 +172,7 @@
 
     <!-- contact -->
     <ng-container matColumnDef="contact">
-      <th mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</th>
+      <th mat-header-cell *matHeaderCellDef>Phone Number</th>
       <td mat-cell *matCellDef="let row">{{ row.contact?.phone }}</td>
     </ng-container>
 

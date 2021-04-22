@@ -1,27 +1,108 @@
-# NgTest
+# Rashboard Angular
+<h1 align="center">
+  <br>
+  <img src="https://raw.githubusercontent.com/angular/angular/master/aio/src/assets/images/logos/angular/angular.png" height="180" width="150">
+  <br>
+  <img src="https://raw.githubusercontent.com/DanielMichalski/DanielMichalski/master/images/technologies/angular_material.jpg" height="150" width="150">
+  <img src="https://user-images.githubusercontent.com/1699357/98168675-388f5f00-1eeb-11eb-85ca-9176b6cf651a.png" height="150" width="150">
+  <br>
+  rashboard - Dashboard With Angular Material
+  <br>
+</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-v11-red">
+  <img src="https://img.shields.io/badge/Angular%20Material-v11-blue">
+  <img src="https://img.shields.io/badge/NgRx-v11-blueviolet">
+</p>
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Rashboard Angular](#rashboard-angular)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+    - [Project Preview](#project-preview)
+  - [Demo link](#demo-link)
+  - [App folder structure](#app-folder-structure)
+  - [How to run this project](#how-to-run-this-project)
+    - [1. clone this repo](#1-clone-this-repo)
+  - [2. cd into this project](#2-cd-into-this-project)
+  - [3. install all required modules](#3-install-all-required-modules)
+  - [4. run project in development mode](#4-run-project-in-development-mode)
+  - [References](#references)
+  - [Contact](#contact)
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repository contains a simple angular dashboard starter kit built on top of Angular Material components.
 
-## Build
+In order to use this dashboard kit, you need to fullfil the following minimum requirements on your system:
+  - NodeJS (v12 or v14)
+  - npm (7.6.1) 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Project Preview
+![rasboard-desktop-dark-theme](https://raw.githubusercontent.com/radvil/rashboard/main/screenshots/desktop-view-light-theme.jpg);
+![rasboard-desktop-light-theme](https://raw.githubusercontent.com/radvil/rashboard/main/screenshots/desktop-view-dark-theme.jpg);
+![rasboard-mobile-light-theme](https://raw.githubusercontent.com/radvil/rashboard/main/screenshots/mobile-view-dark-theme.jpg);
 
-## Running unit tests
+## Demo link
+Visit [https://rashboard.web.app/](https://rashboard.web.app/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## App folder structure
 
-## Running end-to-end tests
+Here's a folder structure for a this project:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+app/
+  |- _core/
+  |- _shared/
+  |- about/
+  |- chat/
+  |- company/
+  |- dashboard/
+  |- shell/
+  |- social/
+  |- tables/
+  |- app-routing.module.ts
+  |- app.components.ts
+  |- app.module.ts
+```
 
-## Further help
+## How to run this project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Simply follow below instruction to run this on development mode:
+
+### 1. clone this repo
+```
+git clone.
+```
+
+## 2. cd into this project
+```
+cd rashboard/
+```
+
+## 3. install all required modules
+```
+npm install
+```
+
+## 4. run project in development mode
+```
+npm start
+
+or
+
+ng serve (if you have angular cli globally installed in your system)
+```
+
+## References
+
+- [Angular](https://angular.io/)
+- [Angular Material](https://material.angular.io/)
+- [NgRx](https://ngrx.io/)
+
+## Contact
+
+- Email: [radvil.phone@gmail.com](#)
+- Telegram: [@laradvil](#)

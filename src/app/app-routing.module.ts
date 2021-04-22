@@ -5,7 +5,7 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'about',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
