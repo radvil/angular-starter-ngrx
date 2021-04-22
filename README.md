@@ -85,7 +85,7 @@ Simply follow below instruction to run this on development mode:
 
 ### 1. clone this repo
 ```
-git clone.
+git clone https://github.com/radvil/rashboard.git
 ```
 
 ### 2. cd into this project

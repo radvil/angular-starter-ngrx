@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rad-board": {
+    "rashboard": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rad-board",
+            "outputPath": "dist/rashboard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -93,18 +93,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rad-board:build"
+            "browserTarget": "rashboard:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rad-board:build:production"
+              "browserTarget": "rashboard:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rad-board:build"
+            "browserTarget": "rashboard:build"
           }
         },
         "test": {
@@ -143,16 +143,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rad-board:serve"
+            "devServerTarget": "rashboard:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rad-board:serve:production"
+              "devServerTarget": "rashboard:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "rad-board"
+  "defaultProject": "rashboard"
 }

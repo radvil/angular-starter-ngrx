@@ -12,7 +12,7 @@ import { tap, withLatestFrom } from 'rxjs/operators';
 
 export const SETTINGS_KEY = 'SETTINGS';
 
-const INIT = of('rad-board-init-effect-trigger');
+const INIT = of('rashboard-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {
